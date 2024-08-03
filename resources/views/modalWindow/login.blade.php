@@ -7,6 +7,7 @@
         <h3 class="modal-subtitle">Вход</h3>
     </div>
     <form class="modal__form" method="GET" action="{{route('advent.auth')}}">
+        @csrf
         <div class="modal__form-item">
             <label for="mail">Электронная Почта</label>
             <input type="text" name="email" required="required">
