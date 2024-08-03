@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('day');
             $table->string('name');
             $table->text('description')->nullable();
-            $table->string('link')->nullable();
+            $table->text('longread')->nullable();
             $table->timestamps();
         });
     }

@@ -1,0 +1,105 @@
+.inactive{
+    transform: scale(0) !important;;
+    opacity: 0 !important;
+    position: absolute !important;
+    /* display: none!important; */
+    /* width: 0; */
+}
+.modal-close{
+    position: absolute;
+    right: 50px;
+    top: 50px;
+    cursor: pointer;
+}
+.modal-wrapper{
+    z-index: 3;
+    transition: opacity 0.4s;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.modal-info{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.modal__form-item{
+    display: flex;
+    flex-direction: column;
+    font-family: loos-normal-regular;
+    font-size: 18px;
+    gap: 15px;
+}
+.modal__form{
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
+}
+.modal{
+    /* transition-delay: 0.5s; */
+    opacity: 1;
+    transform: translateY(0);
+    z-index: 4;
+    height: fit-content;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    padding: 50px;
+    background-color: #73ACDD;
+    border-radius: 30px;
+    max-width: 1100px;
+    color: white;
+    gap: 30px;
+    input{
+        transition: 0.2s;
+        max-width: 600px;
+        width: 100%;
+        background-color: white;
+        color: black;
+        border-radius: 30px;
+        border: 2px solid white;
+        padding: 10px;
+        outline: none; 
+        font-size: 18px;
+        &:active, &:focus{
+            outline: 5px #C7DFF4 solid;
+        }
+    }
+    button{
+        transition: 0.3s;
+        border: 2px solid white;
+        border-radius: 30px;
+        color: white;
+        background-color: #73ACDD;
+        font-size: 18px;
+        font-family: loos-normal-bold;
+        max-width: fit-content;
+        padding: 10px 20px 10px 20px ;
+        cursor: pointer;
+        &:active, &:focus{
+            transition: 0.1s;
+            outline: 4px #C7DFF4 solid;
+            background-color: white;
+            color: #73ACDD;
+        }
+        &:hover{
+            background-color: white;
+            color: #73ACDD;
+        }
+    }
+    h2{
+        font-family: loos-extended-black;
+        font-size: 50px;
+    }
+    h3{
+        font-size: 30px;
+        font-family: loos-normal-medium;
+    }
+}

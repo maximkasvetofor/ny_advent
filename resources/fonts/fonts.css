@@ -1,0 +1,35 @@
+@font-face {
+    font-family:'loos-extended-black';
+    src: url(fonnts.com-Loos_Extended_Black.otf);
+    font-style: normal;
+    font-weight: 800;
+    line-height: 76px;
+}
+@font-face {
+font-family:'loos-normal-medium';
+    src: url(fonnts.com-Loos_Normal_Medium.otf);
+    font-style: normal;
+    font-weight: 500;
+    line-height: 50px;
+}
+@font-face {
+    font-family:'loos-normal-regular';
+    src: url(fonnts.com-Loos_Normal_Regular.otf);
+    font-weight:700;
+    font-style:normal;
+    font-stretch:normal;
+    font-display:auto;
+}
+  @font-face {
+    font-family:'loos-normal-bold';
+    src: url(fonnts.com-Loos_Normal_Bold.otf);
+    font-weight:800;
+    font-style:normal;
+    font-stretch:normal;
+    font-display:auto;
+  }
+
+
+/* 31 шаг на пути к вашей цифровой безопасности */
+
+

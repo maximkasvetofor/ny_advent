@@ -19,7 +19,7 @@ class Days extends Model implements HasMedia
         'day',
         'name',
         'description',
-        'link',
+        'longread',
     ];
 
     public function getDayImage(): ?Media
