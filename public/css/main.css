@@ -141,6 +141,7 @@ footer{
     max-width: 120px;
     transition: 0.3s;
     box-shadow: black  0px 1px;
+    width: 100px;
     &:hover{
         background-color: #173E7E;
         transform: scale(1.05);
@@ -163,6 +164,12 @@ footer{
         max-width: 100%;
         
     }
+    @media (max-width: 768px){
+        div:nth-child(2){
+            text-align: center !important;
+            align-items: center !important;
+        }
+    }
     div:nth-child(1){
         /* max-width: 100%; */
     }
@@ -184,15 +191,27 @@ footer{
         flex-direction: column;
         row-gap: 30px;
     }
-    @media (min-width: 768px) {
+    @media (max-width: 768px) {
         h2{
-            font-size: 50px;
-            /* font-size: 3,75rem; */
+            font-size: 30px !important;
+        }
+        h3{
+            font-size: 1.5rem !important;
         }
     }
+    @media (max-width: 460px) {
+        h2{
+            font-size: 6vw !important;
+        } 
+        h3{
+            font-size: 5vw !important;
+        } 
+    }
+    
     h2{
         font-family: loos-extended-black;
         text-transform: uppercase;
+        font-size: 50px;
     }
     h3{
         font-size: 30px;
