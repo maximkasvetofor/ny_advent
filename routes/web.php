@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/admin', [App\Http\Controllers\AdminController::class, 'admin'])->name('admin.dayslist');
+Route::get('/admin/edit/{id}', [App\Http\Controllers\AdminController::class, 'edit'])->name('admin.editform');
 Route::get('/', [App\Http\Controllers\AdventController::class, 'advent'])->name('index');
 Route::post('/advent/register', [AuthController::class,'registration'])->name('advent.register');
 Route::get('/advent/auth', [AuthController::class,'authenticate'])->name('advent.auth');
