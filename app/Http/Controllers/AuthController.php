@@ -34,6 +34,12 @@ class AuthController extends Controller
         ])->onlyInput('email');
     }
 
+    public function logout(Request $request): RedirectResponse
+    {
+        Auth::logout();
+        return redirect()->intended('/');
+    }
+
     /**
      * Store a newly created resource in storage.
      * @param  \Illuminate\Http\Request $request

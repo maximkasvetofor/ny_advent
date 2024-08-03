@@ -17,4 +17,8 @@ class AdventController extends Controller
 
         return view('index', ['Days' => $Days]);
     }
+    public function show()
+    {
+         return view('modalWindow.subs');
+    }
 }
