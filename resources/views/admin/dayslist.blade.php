@@ -117,6 +117,7 @@
                     <div class="modal__form-item">
                         <label for="mail">Изображение</label>
                         <input type="file" id="file-input" name="image" required="required" value="">
+
                     </div>
                 </form>
                 <button id="submit" value="">Изменить</button>

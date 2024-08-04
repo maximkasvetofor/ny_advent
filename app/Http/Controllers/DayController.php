@@ -52,6 +52,7 @@ class DayController extends Controller
      */
     public function update(Request $request, Day $day)
     {
+
         if($request->hasFile('picture')){
             $day->clearMediaCollection('dayimage');
             $day->addMediaFromRequest('picture')->toMediaCollection('dayimage');
