@@ -23,8 +23,58 @@ document.addEventListener('DOMContentLoaded', function() {
                 setTimeout(function() {
                     item.querySelector('#tapeWhite').classList.add('tape-off');
                     item.querySelector('#tapeRed').classList.add('tape-off');
+                    var day = (item.getAttribute('value'));
+                    var request = new XMLHttpRequest(); // Создвём объект запроса
+
+                    request.open('GET', '/gift/' + day); // Указываем куда отправить запрос
+                    request.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]').content);
+                    request.send(); // Выполняем отправку
+
+                    request.onreadystatechange = function () { // Дожидаемся ответа
+                        if (request.readyState == 4 && request.status == 200) {// Делаем проверку если ответ получен и страница отдала код 200 (открылась)
+                            const json = JSON.parse(request.responseText);
+                            console.log(json);
+                            document.getElementsByClassName("modal-wrapper")[0].classList.remove("inactive")
+                            document.getElementsByClassName("modal-podarok")[0].classList.remove("inactive")
+                            document.getElementById('podarok-id').innerHTML = "Совет №" + json[0];
+                            document.getElementById('podarok-name').innerHTML = json[1];
+                            document.getElementById('podarok-description').innerHTML = json[2];
+                            if (json[0] == 31) {
+                                document.getElementById('podarok-btn').innerHTML = "С НОВЫМ ГОДОМ!"
+                            }
+                            // ВРОДЕ РАБОТАЕТ
+                            var kek = json[3]
+                            if (kek) {
+                                document.getElementById('podarok-longread').innerHTML = `<button type="submit" id="podarok-btn">Подробнее</button>`;
+                            }
+                        }
+                    }
                 }, 200);
+
+
             }
         });
     });
 });
+// document.getElementsByClassName("calendar")[0].addEventListener("click",function(event) {
+//     console.log(event.target);
+//     if (event.target.tagName === "LI") {
+//         var day = (event.target.getAttribute('value'));
+//         var request = new XMLHttpRequest(); // Создвём объект запроса
+
+        // request.open('GET', '/gift/' + day); // Указываем куда отправить запрос
+        // request.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]').content);
+        // request.send(); // Выполняем отправку
+
+        // request.onreadystatechange = function () { // Дожидаемся ответа
+        //     if (request.readyState == 4 && request.status == 200) {// Делаем проверку если ответ получен и страница отдала код 200 (открылась)
+        //         const json = JSON.parse(request.responseText);
+        //         console.log(json);
+        //         document.getElementById('day-gift').innerHTML = "День №" + json[0];
+        //         document.getElementById('name-gift').innerHTML = json[1];
+        //         document.getElementById('description-gift').innerHTML = json[2];
+        //         // document.getElementById('longread-gift').innerHTML = json[3];
+        //     }
+        // }
+//     }
+// });
