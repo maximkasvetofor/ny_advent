@@ -22,7 +22,9 @@ Route::get('/test', [App\Http\Controllers\AdminController::class, 'test'])->name
 Route::get('/adminp', [App\Http\Controllers\AdminController::class, 'admin'])->name('admin.dayslist');
 Route::get('/adminp/edit/{id}', [App\Http\Controllers\AdminController::class, 'edit'])->name('admin.editform');
 Route::post('/adminp/editconfirm', [App\Http\Controllers\AdminController::class, 'editconfirm'])->name('admin.editconfirm');
+
 Route::get('/', [App\Http\Controllers\AdventController::class, 'advent'])->name('index');
+Route::get('/gift/{id}', [App\Http\Controllers\AdventController::class, 'gift'])->name('gift');
 Route::post('/advent/register', [AuthController::class,'registration'])->name('advent.register');
 Route::get('/advent/auth', [AuthController::class,'authenticate'])->name('advent.auth');
 Route::get('/advent/logout', [AuthController::class,'logout'])->name('advent.logout');

@@ -21,4 +21,9 @@ class AdventController extends Controller
     {
          return view('modalWindow.subs');
     }
+    public function gift($id)
+    {
+        $day = $this->dayRepository->getAdvent($id);
+        return [$day->day, $day->name, $day->description, $day->longread];
+    }
 }
