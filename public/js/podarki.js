@@ -39,14 +39,13 @@ document.addEventListener('DOMContentLoaded', function() {
                             document.getElementById('podarok-id').innerHTML = "Совет №" + json[0];
                             document.getElementById('podarok-name').innerHTML = json[1];
                             document.getElementById('podarok-description').innerHTML = json[2];
-                            document.getElementById('podarok-media').innerHTML = `<img src="data:image/jpeg;base64,${json[4]}" alt="" width="100">`;
+                            document.getElementById('podarok-media').innerHTML = `<img src="data:image/jpeg;base64,${json[4]}" alt="" width="100%">`;
                             if (json[0] == 31) {
                                 document.getElementById('podarok-btn').innerHTML = "С НОВЫМ ГОДОМ!"
                             }
-                            // ВРОДЕ РАБОТАЕТ
-                            var kek = json[3]
-                            if (kek) {
-                                document.getElementById('podarok-longread').innerHTML = `<button type="submit" id="podarok-btn">Подробнее</button>`;
+                            if (json[3]) {
+
+                                document.getElementById('podarok-longread').innerHTML = `<a href="/adminp/longread/${day}" id="podarok-btn">Подробнее</a>`;
                             }
                         }
                     }

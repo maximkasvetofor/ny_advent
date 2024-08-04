@@ -129,6 +129,7 @@
 </body>
 </html>
 <script>
+
     const ModalWrapper = document.getElementsByClassName("modal-wrapper")[0]
     const ModalDays = document.getElementsByClassName("modal-days")[0]
     const CloseIcons = document.querySelectorAll(".modal-close")

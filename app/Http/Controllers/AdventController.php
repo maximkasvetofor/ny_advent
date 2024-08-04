@@ -32,4 +32,10 @@ class AdventController extends Controller
         $encodedImageData = base64_encode($imageData);
         return [$day->day, $day->name, $day->description, $day->longread, $encodedImageData];
     }
+    public function longread($id)
+    {
+        $day = $this->dayRepository->getAdvent($id);
+        $longrid = $day->longread;
+        return response()->view('modalWindow.subs', ['day' => $day, 'longrid' => $longrid]);
+    }
 }

@@ -29,6 +29,7 @@
                     @endif
                     @if(Auth::check() and auth()->user()->role=='admin')
                         <form action="{{route('admin.dayslist')}}">
+                            <button style="display: none" id="auth-btn">Авторизоваться</button>
                             <button id="subtest-btn">Администрация</button>
                         </form>
                     @endif
