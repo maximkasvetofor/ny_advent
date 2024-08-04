@@ -13,7 +13,7 @@ class AdventController extends Controller
 
     public function advent()
     {
-        $Days = $this->dayRepository->getAdvent();
+        $Days = $this->dayRepository->getAdvents();
 
         return view('index', ['Days' => $Days]);
     }
