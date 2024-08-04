@@ -22,6 +22,27 @@ footer{
     font-family: loos-normal-regular;
     font-size: 18px;
 }
+.mw-200{
+    max-width: 200px;
+}
+.wh-200{
+    max-width: 200px;
+    max-height: 200px;
+    height: 100%;
+    width: 100%;
+}
+.font-regular{
+    font-family: loos-normal-regular !important;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+}
+.font-medium{
+    font-family: loos-normal-medium !important;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+}
 .container{
     /* max-width: 1000px; */
 }
@@ -141,7 +162,7 @@ footer{
     max-width: 120px;
     transition: 0.3s;
     box-shadow: black  0px 1px;
-    width: 100px;
+    width: 100%;
     &:hover{
         background-color: #173E7E;
         transform: scale(1.05);
@@ -162,7 +183,9 @@ footer{
     gap: 30px;
     svg{
         max-width: 100%;
-
+    }
+    img{
+        width: 100%;
     }
     @media (max-width: 768px){
         div:nth-child(2){
@@ -295,4 +318,3 @@ footer{
         transform: scaleY(2);
     }
 }
-
