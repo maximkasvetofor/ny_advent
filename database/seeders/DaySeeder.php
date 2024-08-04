@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DaySeeder extends Seeder
 {
@@ -13,6 +14,13 @@ class DaySeeder extends Seeder
      */
     public function run(): void
     {
+        DB::table('users')->insert([
+           'email' => 'admin@admin.com',
+            'password' => Hash::make('password'),
+            'role' => 'admin',
+
+        ]);
+
         DB::table('days')->insert([
             [
                 'day' => '1',
