@@ -35,7 +35,9 @@
                     <path d="M575.319 0.555176V9.39518H558.429V35.3952H547.509V9.39518H530.619V0.555176H575.319Z" fill="white"/>
                 </svg>
                 <div class="header-buttons">
-                    <button id="subscribe-btn"><a href="{{route("index")}}">Вернуться</a></button>
+                    <form action="{{route("index")}}">
+                    <button id="subscribe-btn">Вернуться</button>
+                    </form>
                     <button id="auth-btn">Выйти</button>
                 </div>
             </div>

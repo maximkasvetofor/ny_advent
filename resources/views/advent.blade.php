@@ -28,7 +28,9 @@
                     <button id="auth-btn">Авторизоваться</button>
                     @endif
                     @if(Auth::check() and auth()->user()->role=='admin')
-                            <a id="subtest-btn" href="{{route('advent.subs.show')}}">Администрация</a>
+                        <form action="{{route('admin.dayslist')}}">
+                            <button id="subtest-btn">Администрация</button>
+                        </form>
                     @endif
                 </div>
             </div>
