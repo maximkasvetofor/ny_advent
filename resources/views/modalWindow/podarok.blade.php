@@ -12,7 +12,8 @@
         </div>
         <div class="modal__form-item">
             <p id="podarok-description"></p>
-            <div id="podarok-media"></div>
+            <div id="podarok-media">
+            </div>
 
         </div>
         <button id="podarok-btn" type="button">Жду следующего совета!</button>

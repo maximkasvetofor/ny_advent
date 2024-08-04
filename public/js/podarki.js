@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             document.getElementById('podarok-id').innerHTML = "Совет №" + json[0];
                             document.getElementById('podarok-name').innerHTML = json[1];
                             document.getElementById('podarok-description').innerHTML = json[2];
+                            document.getElementById('podarok-media').innerHTML = `<img src="data:image/jpeg;base64,${json[4]}" alt="" width="100">`;
                             if (json[0] == 31) {
                                 document.getElementById('podarok-btn').innerHTML = "С НОВЫМ ГОДОМ!"
                             }

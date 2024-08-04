@@ -28,6 +28,8 @@ class AdventController extends Controller
     public function gift($id)
     {
         $day = $this->dayRepository->getAdvent($id);
-        return [$day->day, $day->name, $day->description, $day->longread];
+        $imageData = $day->data;
+        $encodedImageData = base64_encode($imageData);
+        return [$day->day, $day->name, $day->description, $day->longread, $encodedImageData];
     }
 }
