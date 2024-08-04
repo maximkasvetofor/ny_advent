@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('description')->nullable();
             $table->text('longread')->nullable();
+            $table->binary('data', 16777215)->nullable();
             $table->timestamps();
         });
     }

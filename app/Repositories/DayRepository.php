@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Models\Days;
+use App\Models\Day;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,11 +10,16 @@ class DayRepository
 {
     public function getAdvents(): Collection
     {
-        return Days::query()->get();
+        return Day::query()->get();
     }
 
     public function getAdvent($id): Model
     {
-        return Days::query()->findOrFail($id);
+        return Day::query()->findOrFail($id);
+    }
+
+    public function update(int $id, array $data): bool
+    {
+        return Day::query()->where('id', '=', $id)->update($data);
     }
 }
