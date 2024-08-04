@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const LoginModal = document.getElementsByClassName("modal-login")[0]
     const RegModal = document.getElementsByClassName("modal-reg")[0]
     const ModalWrapper = document.getElementsByClassName("modal-wrapper")[0]
+    const PodarokModal = document.getElementsByClassName("modal-podarok")[0]
     // Авторизация
     Auth.addEventListener("click", function(){
         toggle_modal()
@@ -34,7 +35,10 @@ document.addEventListener('DOMContentLoaded', function() {
         SubscribeModal.classList.remove("inactive")
     })
 
-
+    // Закрыть окно подарка при нажатии на кнопку
+    document.getElementById("podarok-btn").addEventListener("click", function(){
+        toggle_modal();
+    })
     // Закрытие окна при нажатии на X
     CloseIcons.forEach(icon => {
         icon.addEventListener("click",toggle_modal)
@@ -47,6 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     // Вызов окна Авторизоваться
     function toggle_modal(modal){
+        PodarokModal.classList.add("inactive")
         LoginModal.classList.add("inactive")
         SubscribeModal.classList.add("inactive")
         RegModal.classList.add("inactive")

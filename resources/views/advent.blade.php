@@ -47,7 +47,7 @@
                 сможете обезопасить себя и своих близких в цифровой среде.
             </p>
             <p>
-                Упоминание, что проект создан в рамках хакатона «ИТ-вызов» силами команды “Будущее России: Эра Альтрона” и ее участников Кононова Максима, Кононова Максима, Кононова Максима и Кононова Максима
+                Упоминание, что проект создан в рамках хакатона «ИТ-вызов» силами команды “Будущее России” и ее участников Кононова Максима, Александрова Богдана, Чикурова Никиты и Даниила Старкова
             </p>
         </div>
         <!-- Календарь -->
@@ -140,16 +140,10 @@
             </div>
         </div>
 
-{{--        MODALKI--}}
-        <div>
-                <span id="day-gift"></span>
-                <span id="name-gift"></span>
-                <span id="description-gift"></span>
-        </div>
-
         <!-- Футер -->
         <footer>
             2024 © Команда “Будущее России”
+            Посещений: {{ $Count }}
         </footer>
     </div>
     <div class="modal-wrapper inactive">
@@ -158,33 +152,13 @@
         @include('modalWindow.registration')
         <!-- Вход -->
         @include('modalWindow.login')
+        <!-- Подарок -->
+        @include('modalWindow.podarok')
     </div>
 </main>
 
 <script>
-    document.getElementsByClassName("calendar")[0].addEventListener("click",function(event) {
-        console.log(event.target);
-        if (event.target.tagName === "LI") {
-            console.log("ura")
-            var day = (event.target.getAttribute('value'));
-            var request = new XMLHttpRequest(); // Создвём объект запроса
 
-            request.open('GET', '/gift/' + day); // Указываем куда отправить запрос
-            request.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]').content);
-            request.send(); // Выполняем отправку
-
-            request.onreadystatechange = function () { // Дожидаемся ответа
-                if (request.readyState == 4 && request.status == 200) {// Делаем проверку если ответ получен и страница отдала код 200 (открылась)
-                    const json = JSON.parse(request.responseText);
-                    console.log(json);
-                    document.getElementById('day-gift').innerHTML = "День №" + json[0];
-                    document.getElementById('name-gift').innerHTML = json[1];
-                    document.getElementById('description-gift').innerHTML = json[2];
-                    // document.getElementById('longread-gift').innerHTML = json[3];
-                }
-            }
-        }
-    });
 
 </script>
 
