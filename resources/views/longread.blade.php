@@ -12,7 +12,7 @@
 @endsection
 
 @section('content')
-    
+
     <main>
         @include('partials.header')
         <div class="cotnent">
@@ -23,7 +23,7 @@
                     </ul>
                     <h2>День № {{$day}}</h1>
                         <h3>{{$name}}</h2>
-                        <p>{{$longread}}</p>
+                        <p>{!! nl2br($longread) !!}</p>
                 </div>
             @include('partials.links')
             @include('partials.footer')

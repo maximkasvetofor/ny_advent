@@ -89,7 +89,7 @@
                 </div>
                 <div class="modal__form-item">
                     <label for="mail">Описание</label>
-                    <input type="textarea" rows="10" cols="45" id="description-input" name="desc" required="required" value="">
+                    <textarea type="textarea" rows="10" cols="45" id="description-input" name="desc" required="required" value=""></textarea>
                 </div>
                 <div class="modal__form-item">
                     <label for="mail">Изображение</label>
@@ -154,7 +154,7 @@
                         const formData = new FormData();
                         const day = document.getElementById('submit').value;
                         const name = document.querySelector('input[name="name"]').value;
-                        const description = document.querySelector('input[name="desc"]').value;
+                        const description = document.querySelector('textarea[name="desc"]').value;
                         const longread = document.querySelector('textarea[name="long"]').value;
                         const fileField = document.querySelector('input[name="image"]');
                         const button = document.querySelector('input[name="button"]').value;
