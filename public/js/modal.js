@@ -1,14 +1,17 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Модальные окна
-    const Subscribe = document.getElementById("subscribe-btn")
     const CloseIcons = document.querySelectorAll(".modal-close")
     const SubscribeModal = document.getElementsByClassName("modal-subscribe")[0]
     const LoginModal = document.getElementsByClassName("modal-login")[0]
     const RegModal = document.getElementsByClassName("modal-reg")[0]
     const ModalWrapper = document.getElementsByClassName("modal-wrapper")[0]
     const PodarokModal = document.getElementsByClassName("modal-podarok")[0]
+    const ModalDays = document.getElementsByClassName("modal-days")[0]
+    
+    // if(ModalDays){
+    //     const ModalDaysBtn = document.getElementById("auth-btn")
+    // }
     // Авторизация
-
     if (document.getElementById("auth-btn") ){
         const Auth = document.getElementById("auth-btn")
         Auth.addEventListener("click", function(){
@@ -34,10 +37,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Вызов окна Подписаться
-    Subscribe.addEventListener("click", function(){
-        toggle_modal()
-        SubscribeModal.classList.remove("inactive")
-    })
+    if (document.getElementById("subscribe-btn") ){
+        const Subscribe = document.getElementById("subscribe-btn")
+        Subscribe.addEventListener("click", function(){
+            console.log("призываю")
+            toggle_modal()
+            SubscribeModal.classList.remove("inactive")
+        })
+    }
+    
+
+
 
     // Закрыть окно подарка при нажатии на кнопку
     if( document.getElementById("podarok-btn") ){
@@ -58,11 +68,17 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     // Вызов окна Авторизоваться
     function toggle_modal(modal){
-        PodarokModal.classList.add("inactive")
-        clear_figt_info()
-        LoginModal.classList.add("inactive")
+        if(PodarokModal){
+            PodarokModal.classList.add("inactive")
+            clear_figt_info()
+        }
+        if(LoginModal){
+            LoginModal.classList.add("inactive")
+        }
+        if(RegModal){
+            RegModal.classList.add("inactive")
+        }
         SubscribeModal.classList.add("inactive")
-        RegModal.classList.add("inactive")
         document.getElementsByClassName("modal-wrapper")[0].classList.toggle("inactive")
     }
     function clear_figt_info() {

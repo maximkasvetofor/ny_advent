@@ -47,6 +47,8 @@
     gap: 30px;
     max-height: 400px;
     overflow-y: auto;
+    /* секретный арсенал РОССИИ */
+    padding: 5px;
 }
 .modal__form{
     gap: 30px;
