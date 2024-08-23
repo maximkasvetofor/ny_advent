@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
     calendarItems.forEach(function(item) {
         const day = parseInt(item.querySelector('span').textContent);
         item.addEventListener('click', function() {
-            console.log(dayOfMonth);
             if (day > dayOfMonth) {
                 item.classList.add('gift-shake');
                 setTimeout(function() {
@@ -25,15 +24,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     item.querySelector('#tapeRed').classList.add('tape-off');
                     var day = (item.getAttribute('value'));
                     var request = new XMLHttpRequest(); // Создвём объект запроса
-
                     request.open('GET', '/gift/' + day); // Указываем куда отправить запрос
                     request.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]').content);
                     request.send(); // Выполняем отправку
-
                     request.onreadystatechange = function () { // Дожидаемся ответа
                         if (request.readyState == 4 && request.status == 200) {// Делаем проверку если ответ получен и страница отдала код 200 (открылась)
                             const json = JSON.parse(request.responseText);
-                            console.log(json);
                             document.getElementsByClassName("modal-wrapper")[0].classList.remove("inactive")
                             document.getElementsByClassName("modal-podarok")[0].classList.remove("inactive")
                             document.getElementById('podarok-id').innerHTML = "Совет №" + json[0];
