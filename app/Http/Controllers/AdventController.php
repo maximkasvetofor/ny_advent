@@ -44,8 +44,10 @@ class AdventController extends Controller
     }
     public function longread($id)
     {
+        $Visit = Visit::firstOrCreate([]);
+        $Visit->Count = ($Visit->Count ?? 0) + 1;
+        $Visit->save();
         $day = $this->dayRepository->getAdvent($id);
-        $longrid = $day->longread;
-        return response()->view('modalWindow.subs', ['day' => $day, 'longrid' => $longrid]);
+        return response()->view('longread', ['day' => $day->day, 'name' => $day->name, 'longread' => $day->longread, 'Count' => $Visit->Count]);
     }
 }
