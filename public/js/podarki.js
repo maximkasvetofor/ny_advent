@@ -39,20 +39,31 @@ document.addEventListener('DOMContentLoaded', function() {
                             document.getElementById('podarok-id').innerHTML = "Совет №" + json[0];
                             document.getElementById('podarok-name').innerHTML = json[1];
                             document.getElementById('podarok-description').innerHTML = json[2];
-                            document.getElementById('podarok-media').innerHTML = `<img src="data:image/jpeg;base64,${json[4]}" alt="" width="100%">`;
                             document.getElementsByClassName('modal__form-item')
-                            document.getElementById('share').setAttribute('data-title', 'Сегодня я узнал о совете: "'+json[1]+'"! Узнай больше по ссылке- ');
                             if (json[0] == 31) {
                                 document.getElementById('podarok-btn').innerHTML = "С НОВЫМ ГОДОМ!"
                             }
                             var form = document.getElementById('gift-form')
+                            document.getElementById('podarok-btn').innerHTML = json[5];
+                            // Поделится
+                            // document.getElementById("share").setAttribute('data-title', 'Сегодня я узнал о совете: "'+json[1]+'"! Узнай больше по ссылке- ');
+                            
                         //ЛОНГРИД 
                             if (json[3]) {
                                 form.getElementsByClassName("modal-buttons")[0].getElementsByTagName("div")[0].innerHTML += `<a class href="/adminp/longread/${day}" id="podarok-btn">Подробнее</a>`
+                                // form.getElementsByClassName("modal-buttons")[0].getElementsByTagName("div")[0].remove("inactive")
+                                form.getElementsByClassName("modal-buttons")[0].getElementsByTagName("div")[0].style.display = "flex";
+
+                            }else{
+                                form.getElementsByClassName("modal-buttons")[0].getElementsByTagName("div")[0].style.display = "none";
                             }
+
                         //МЕДИА
                             if (json[4]) {
-                                form.getElementsByClassName("modal__form-item")[1].innerHTML += "keks"
+                                document.getElementById('podarok-media').innerHTML = `<img src="${json[4]}" alt="" width="100%">`;
+                                document.getElementById("podarok-media").style.display = "flex";
+                            }else{
+                                document.getElementById('podarok-media').style.display = "none";
                             }
                         }
                     }

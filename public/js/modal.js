@@ -52,9 +52,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Вызов окна Авторизоваться
     function toggle_modal(modal){
         PodarokModal.classList.add("inactive")
+        clear_figt_info()
         LoginModal.classList.add("inactive")
         SubscribeModal.classList.add("inactive")
         RegModal.classList.add("inactive")
         document.getElementsByClassName("modal-wrapper")[0].classList.toggle("inactive")
+    }
+    function clear_figt_info() {
+        PodarokModal.getElementsByClassName("modal-buttons-social")[0].innerHTML = ""
+        document.getElementById("podarok-media").innerHTML = ""
     }
 })
