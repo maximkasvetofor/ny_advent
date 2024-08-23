@@ -102,7 +102,8 @@
             outline: 5px #C7DFF4 solid;
         }
     }
-    button{
+    button, a{
+        text-decoration: none;
         transition: 0.3s;
         border: 2px solid white;
         border-radius: 30px;
@@ -132,4 +133,18 @@
         font-size: 30px;
         font-family: loos-normal-medium;
     }
+}
+.gift-social{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+.modal-buttons {
+    display: flex;
+    flex-direction: column-reverse;
+    column-gap: 10px;
+    row-gap: 10px;
+}
+.modal-buttons-social{
+    display: flex;
 }
