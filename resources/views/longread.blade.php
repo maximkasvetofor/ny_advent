@@ -12,48 +12,21 @@
 @endsection
 
 @section('content')
-    @include('partials.header')
+    
     <main>
+        @include('partials.header')
         <div class="cotnent">
-            <div class="container">
-                <ul class="page-breadcrumb">
-                    <li><a href="{{ route('index') }}">Главная</a></li>
-                    <li>День № {{$day}}</li>
-                </ul>
-            </div>
-
-                <style>
-                    .page-breadcrumb{
-                        margin-top:120px
-                    }
-                    .page-breadcrumb{
-                    /*padding: 15px 15px;*/
-                        padding-bottom: 15px;
-                        list-style: none;
-                        li {
-                            display: inline;
-                            font-size: 14px;
-                            a {
-                                color: var(--header-btn-color);
-                                text-decoration: none;
-                            }
-                        }
-                        li+li:before {
-                            padding: 8px;
-                            color: black;
-                            content: "/\00a0";
-                        }
-                    }
-                </style>
-                <div class="container mt-first-container">
+                <div class="container">
+                    <ul class="page-breadcrumb">
+                        <li><a href="{{ route('index') }}">Главная</a></li>
+                        <li></li>
+                    </ul>
                     <h2>День № {{$day}}</h1>
                         <h3>{{$name}}</h2>
                         <p>{{$longread}}</p>
                 </div>
-            <</div>
             @include('partials.links')
             @include('partials.footer')
-
         </div>
     </main>
 

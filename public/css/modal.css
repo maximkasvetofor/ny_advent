@@ -45,6 +45,8 @@
     font-family: loos-normal-regular;
     font-size: 18px;
     gap: 30px;
+    max-height: 400px;
+    overflow-y: auto;
 }
 .modal__form{
     gap: 30px;

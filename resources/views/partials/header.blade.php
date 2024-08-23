@@ -19,21 +19,25 @@
     </a>
     <div class="header-buttons">
         <button id="subscribe-btn">Подписаться</button>
+        <!-- Не авторизован -->
+        @if(!Auth::check())
+            <button id="auth-btn">Авторизоваться</button>
+        @endif
+
+        <!-- Админ -->
+        @if(Auth::check() and auth()->user()->role=='admin' and !request()->is('*adminp*'))
+            <form action="{{route('admin.dayslist')}}">
+                <button id="subtest-btn">Администрация</button>
+            </form>
+        @endif
+        <!-- Авторизован -->
         @if(Auth::check())
             <form class="logOut" method="get" action="{{route('advent.logout')}}">
                 <button>Выход</button>
             </form>
-            <button id="auth-btn" style="display:none!important">Авторизоваться</button>
-        @else
-            <form class="logOut" method="get" action="{{route('advent.logout')}}" style="display:none!important">
-                <button>Выход</button>
-            </form>
-            <button id="auth-btn">Авторизоваться</button>
         @endif
-        @if(Auth::check() and auth()->user()->role=='admin')
-            <form action="{{route('admin.dayslist')}}">
-                <button id="subtest-btn">Администрация</button>
-            </form>
+        @if(Auth::check() and request()->is('*adminp*'))
+
         @endif
     </div>
     </div>

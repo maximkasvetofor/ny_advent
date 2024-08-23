@@ -324,3 +324,26 @@ footer{
         transform: scaleY(2);
     }
 }
+.page-breadcrumb{
+    margin-top:150px
+}
+.page-breadcrumb{
+    font-size: 14px;
+    font-family: loos-normal-regular;
+    padding: 0!important;
+    margin-bottom: 0px!important;
+    list-style: none;
+    li {
+        display: inline;
+        /* font-size: 14px; */
+        a {
+            color: var(--header-btn-color);
+            text-decoration: none;
+        }
+    }
+    li+li:before {
+        padding: 8px;
+        color: black;
+        content: "/\00a0";
+    }
+}

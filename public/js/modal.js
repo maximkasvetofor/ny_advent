@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Модальные окна
     const Subscribe = document.getElementById("subscribe-btn")
-    const Auth = document.getElementById("auth-btn")
     const CloseIcons = document.querySelectorAll(".modal-close")
     const SubscribeModal = document.getElementsByClassName("modal-subscribe")[0]
     const LoginModal = document.getElementsByClassName("modal-login")[0]
@@ -9,14 +8,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const ModalWrapper = document.getElementsByClassName("modal-wrapper")[0]
     const PodarokModal = document.getElementsByClassName("modal-podarok")[0]
     // Авторизация
-    Auth.addEventListener("click", function(){
-        toggle_modal()
-        LoginModal.classList.remove("inactive")
-    })
-    const HaveAccountBtn = document.getElementById("i_have_account")
 
-    // print(document.contains(document.getElementById("i_have_account")))
-
+    if (document.getElementById("auth-btn") ){
+        const Auth = document.getElementById("auth-btn")
+        Auth.addEventListener("click", function(){
+            toggle_modal()
+            LoginModal.classList.remove("inactive")
+        })
+    }
     // Перейти к Входу
     if (document.getElementById("i_have_account") ){
         const HaveAccountBtn = document.getElementById("i_have_account");
@@ -33,10 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
             RegModal.classList.remove("inactive")
         })
     }
-
-    // const DontHaveAccountBtn = document.getElementById("i_dont_have_account")
-
-
 
     // Вызов окна Подписаться
     Subscribe.addEventListener("click", function(){
