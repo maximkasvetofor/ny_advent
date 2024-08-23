@@ -6,11 +6,12 @@
         <h2 class="modal-title">Подписаться на Адвент Календарь Киберпротект</h2>
         <h3 class="modal-subtitle">Будьте в курсе всех событий</h3>
     </div>
-    <form class="modal__form">
+    <form class="modal__form" action="{{route('mail.subs')}}">
         <div class="modal__form-item">
             <label for="mail">Электронная Почта</label>
             <input type="text" name="email" required="required">
         </div>
+        <button>Подписаться</button>
     </form>
-    <button>Подписаться</button>
+
 </div>
