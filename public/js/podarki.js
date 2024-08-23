@@ -9,10 +9,10 @@ document.addEventListener('DOMContentLoaded', function() {
         item.addEventListener('click', function() {
             console.log(dayOfMonth);
             if (day > dayOfMonth) {
-                item.classList.add('shake');
+                item.classList.add('gift-shake');
                 setTimeout(function() {
-                    item.classList.remove('shake');
-                }, 500);
+                    item.classList.remove('gift-shake');
+                }, 1000);
             } else {
                 item.classList.add('explode');
                 item.querySelector('#leftSide-cover').classList.add('seeForEver');
@@ -33,16 +33,37 @@ document.addEventListener('DOMContentLoaded', function() {
                     request.onreadystatechange = function () { // Дожидаемся ответа
                         if (request.readyState == 4 && request.status == 200) {// Делаем проверку если ответ получен и страница отдала код 200 (открылась)
                             const json = JSON.parse(request.responseText);
+                            console.log(json);
                             document.getElementsByClassName("modal-wrapper")[0].classList.remove("inactive")
                             document.getElementsByClassName("modal-podarok")[0].classList.remove("inactive")
                             document.getElementById('podarok-id').innerHTML = "Совет №" + json[0];
                             document.getElementById('podarok-name').innerHTML = json[1];
                             document.getElementById('podarok-description').innerHTML = json[2];
-                            document.getElementById('podarok-media').innerHTML = `<img src="${json[4]}" alt="" width="100%">`;
+                            document.getElementsByClassName('modal__form-item')
+                            if (json[0] == 31) {
+                                document.getElementById('podarok-btn').innerHTML = "С НОВЫМ ГОДОМ!"
+                            }
+                            var form = document.getElementById('gift-form')
                             document.getElementById('podarok-btn').innerHTML = json[5];
+                            // Поделится
+                            // document.getElementById("share").setAttribute('data-title', 'Сегодня я узнал о совете: "'+json[1]+'"! Узнай больше по ссылке- ');
+                            
+                        //ЛОНГРИД 
                             if (json[3]) {
+                                form.getElementsByClassName("modal-buttons")[0].getElementsByTagName("div")[0].innerHTML += `<a class href="/adminp/longread/${day}" id="podarok-btn">Подробнее</a>`
+                                // form.getElementsByClassName("modal-buttons")[0].getElementsByTagName("div")[0].remove("inactive")
+                                form.getElementsByClassName("modal-buttons")[0].getElementsByTagName("div")[0].style.display = "flex";
 
-                                document.getElementById('podarok-longread').innerHTML = `<a href="/adminp/longread/${day}" id="podarok-btn">Подробнее</a>`;
+                            }else{
+                                form.getElementsByClassName("modal-buttons")[0].getElementsByTagName("div")[0].style.display = "none";
+                            }
+
+                        //МЕДИА
+                            if (json[4]) {
+                                document.getElementById('podarok-media').innerHTML = `<img src="${json[4]}" alt="" width="100%">`;
+                                document.getElementById("podarok-media").style.display = "flex";
+                            }else{
+                                document.getElementById('podarok-media').style.display = "none";
                             }
                         }
                     }

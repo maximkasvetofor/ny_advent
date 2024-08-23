@@ -118,7 +118,7 @@
                     </div>
                     <div class="modal__form-item">
                         <label for="mail">Изображение</label>
-                        <input type="file" id="file-input" name="image" required="required" value="">
+                        <input type="file" id="file-input" name="image" required="required" accept=".jpg, .png, .webp" value="">
                     </div>
                     <div class="modal__form-item">
                         <label for="mail">Кнопка</label>
@@ -167,6 +167,16 @@
                         const longread = document.querySelector('input[name="long"]').value;
                         const fileField = document.querySelector('input[name="image"]');
                         const button = document.querySelector('input[name="button"]').value;
+                        var fname = document.querySelector('input[name="image"]').value;
+                        var re = /(\.jpg|\.jpeg|\.bmp|\.gif|\.png)$/i;
+                        if (!re.exec(fname)) {
+                            alert("Неподходящее расширение файла! Попробуйте jpg, jpeg, bmp, gif, png");
+                            return;
+                        }
+                        if(fileField.size > 2000000) {
+                            alert("Файл не должен превышать 2МБ!");
+                            return;
+                        }
 
                         formData.append("day", day);
                         formData.append("name", name);

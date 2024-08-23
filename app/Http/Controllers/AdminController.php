@@ -36,6 +36,7 @@ class AdminController extends Controller
         $day->longread = $request->input('longread');
         $day->button = $request->input('button');
         if($request->hasFile('image')){
+            $day->media()->delete();
             $day->addMediaFromRequest('image')->toMediaCollection('day');
         }
         $result = $day->save();

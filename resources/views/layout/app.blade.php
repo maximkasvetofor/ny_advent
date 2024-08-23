@@ -10,6 +10,7 @@
         <script src={{ asset('/bootstrap/js/bootstrap.bundle.min.js') }}></script>
         <script src={{ asset('/js/podarki.js') }}></script>
         <script src={{ asset('/js/modal.js') }}></script>
+        <script src="https://yastatic.net/share2/share.js"></script>
     </head>
     <body class="antialiased">
         @yield('content')

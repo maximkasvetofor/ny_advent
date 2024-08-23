@@ -5,7 +5,7 @@
     <div class="modal-info">
         <h2 class="modal-title" id="podarok-id">0</h2>
     </div>
-    <form class="modal__form" method="Post" action="{{route('advent.register')}}">
+    <form id="gift-form" class="modal__form">
         @csrf
         <div class="modal__form-item">
             <h3 id="podarok-name">0</h3>
@@ -14,9 +14,21 @@
             <p id="podarok-description"></p>
             <div id="podarok-media">
             </div>
-
         </div>
-        <button id="podarok-btn" type="button"></button>
-        <div id="podarok-longread"></div>
+        <!-- <div class="gift-social">
+            <button id="podarok-btn" type="button">Поделится</button>
+        </div> -->
+        <div class="modal-buttons">
+            <button id="podarok-btn" type="button"></button>
+            <!-- <div id="share" class="ya-share2" data-title="" data-curtain data-size="l" data-shape="round" data-limit="0" data-more-button-type="short" data-services="vkontakte,odnoklassniki,telegram,viber,whatsapp"></div> -->
+            <div class="modal-buttons-social">
+            </div>
+        </div>
     </form>
 </div>
+
+<style>
+    .modal-buttons{
+        display:flex;
+    }
+</style>
