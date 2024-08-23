@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('open_gifts', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('day');
+            $table->string('day');
             $table->timestamps();
         });
     }

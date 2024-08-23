@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\OpenGift;
 use App\Models\Visit;
 use Illuminate\Http\Request;
 use App\Models\Day;
 use App\Repositories\DayRepository;
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 class AdventController extends Controller
 {
     public function __construct(protected DayRepository $dayRepository)
@@ -40,6 +42,14 @@ class AdventController extends Controller
         {
             $image = $image->getUrl();
         }
+        if (Auth::check()) {
+            $user = Auth::user();
+            $openGift = OpenGift::firstOrCreate([
+                'name' => $user->email,
+                'day' => $day->day,
+            ]);
+        }
+
         return [$day->day, $day->name, nl2br($day->description), $day->longread, $image, $day->button];
     }
     public function longread($id)
