@@ -89,7 +89,7 @@
     max-width: 1100px;
     color: white;
     gap: 30px;
-    input{
+    input,textarea{
         transition: 0.2s;
         max-width: 600px;
         width: 100%;
@@ -103,6 +103,9 @@
         &:active, &:focus{
             outline: 5px #C7DFF4 solid;
         }
+    }
+    textarea{
+        border-radius: 30px 30px 0px 30px!important;
     }
     button, a{
         text-decoration: none;
