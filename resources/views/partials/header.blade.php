@@ -18,26 +18,27 @@
             </svg>
     </a>
     <div class="header-buttons">
-        <button id="subscribe-btn">Подписаться</button>
+        @if(Auth::check() and request()->is('*adminp*'))
+            <button>{{Auth::user()->email}}</button>
+        @else
+                <button id="subscribe-btn">Подписаться</button>
+        @endif
         <!-- Не авторизован -->
         @if(!Auth::check())
-            <button id="auth-btn">Авторизоваться</button>
+                <button id="auth-btn">Авторизоваться</button>
         @endif
 
         <!-- Админ -->
         @if(Auth::check() and auth()->user()->role=='admin' and !request()->is('*adminp*'))
-            <form action="{{route('admin.dayslist')}}">
-                <button id="subtest-btn">Администрация</button>
-            </form>
+                <form action="{{route('admin.dayslist')}}">
+                    <button id="subtest-btn">Администрация</button>
+                </form>
         @endif
         <!-- Авторизован -->
         @if(Auth::check())
-            <form class="logOut" method="get" action="{{route('advent.logout')}}">
-                <button>Выход</button>
-            </form>
-        @endif
-        @if(Auth::check() and request()->is('*adminp*'))
-
+                <form class="logOut" method="get" action="{{route('advent.logout')}}">
+                    <button>Выход</button>
+                </form> 
         @endif
     </div>
     </div>
