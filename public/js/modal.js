@@ -15,18 +15,27 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     const HaveAccountBtn = document.getElementById("i_have_account")
 
+    // print(document.contains(document.getElementById("i_have_account")))
+
     // Перейти к Входу
-    HaveAccountBtn.addEventListener("click", function(){
+    if (document.getElementById("i_have_account") ){
+        const HaveAccountBtn = document.getElementById("i_have_account");
+        HaveAccountBtn.addEventListener("click", function(){
         RegModal.classList.add("inactive")
         LoginModal.classList.remove("inactive")
     })
-
+    }
     // Перейти к Регестрации
-    const DontHaveAccountBtn = document.getElementById("i_dont_have_account")
-    DontHaveAccountBtn.addEventListener("click", function(){
-        LoginModal.classList.add("inactive")
-        RegModal.classList.remove("inactive")
-    })
+    if (document.getElementById("i_dont_have_account") ){
+        const DontHaveAccountBtn = document.getElementById("i_dont_have_account")
+        DontHaveAccountBtn.addEventListener("click", function(){
+            LoginModal.classList.add("inactive")
+            RegModal.classList.remove("inactive")
+        })
+    }
+
+    // const DontHaveAccountBtn = document.getElementById("i_dont_have_account")
+
 
 
     // Вызов окна Подписаться
@@ -36,9 +45,12 @@ document.addEventListener('DOMContentLoaded', function() {
     })
 
     // Закрыть окно подарка при нажатии на кнопку
-    document.getElementById("podarok-btn").addEventListener("click", function(){
-        toggle_modal();
-    })
+    if( document.getElementById("podarok-btn") ){
+        document.getElementById("podarok-btn").addEventListener("click", function(){
+            toggle_modal();
+        })
+    }
+
     // Закрытие окна при нажатии на X
     CloseIcons.forEach(icon => {
         icon.addEventListener("click",toggle_modal)

@@ -75,9 +75,3 @@
     </div>
 </main>
 
-<script>
-
-
-</script>
-
-

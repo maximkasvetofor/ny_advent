@@ -25,6 +25,9 @@
             </form>
             <button id="auth-btn" style="display:none!important">Авторизоваться</button>
         @else
+            <form class="logOut" method="get" action="{{route('advent.logout')}}" style="display:none!important">
+                <button>Выход</button>
+            </form>
             <button id="auth-btn">Авторизоваться</button>
         @endif
         @if(Auth::check() and auth()->user()->role=='admin')
