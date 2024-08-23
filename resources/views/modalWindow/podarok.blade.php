@@ -17,6 +17,7 @@
 
         </div>
         <button id="podarok-btn" type="button"></button>
+        <div id="share" class="ya-share2" data-title="" data-curtain data-size="l" data-shape="round" data-limit="0" data-more-button-type="short" data-services="vkontakte,odnoklassniki,telegram,viber,whatsapp"></div>
         <div id="podarok-longread"></div>
     </form>
 </div>

@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             document.getElementById('podarok-description').innerHTML = json[2];
                             document.getElementById('podarok-media').innerHTML = `<img src="${json[4]}" alt="" width="100%">`;
                             document.getElementById('podarok-btn').innerHTML = json[5];
+                            document.getElementById('share').setAttribute('data-title', 'Сегодня я узнал о совете: "'+json[1]+'"! Узнай больше по ссылке- ');
                             if (json[3]) {
 
                                 document.getElementById('podarok-longread').innerHTML = `<a href="/adminp/longread/${day}" id="podarok-btn">Подробнее</a>`;
