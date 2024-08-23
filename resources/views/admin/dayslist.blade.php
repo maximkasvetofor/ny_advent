@@ -167,7 +167,7 @@
                         formData.append("name", name);
                         formData.append("description", description);
                         formData.append("longread", longread);
-                        formData.append("picture", fileField.files[0]);
+                        formData.append("image", fileField.files[0]);
                         console.log(day);
                         try {
                             const response = await fetch("{{route('admin.editconfirm')}}", {

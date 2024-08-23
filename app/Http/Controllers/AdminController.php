@@ -34,9 +34,9 @@ class AdminController extends Controller
         $day->name = $request->input('name');
         $day->description = $request->input('description');
         $day->longread = $request->input('longread');
-        $image = $request->file('picture');
-        $imageData = file_get_contents($image->getRealPath());
-        $day->data = $imageData;
+        if($request->hasFile('image')){
+            $day->addMediaFromRequest('image')->toMediaCollection('day');
+        }
         $result = $day->save();
         return ($result);
     }

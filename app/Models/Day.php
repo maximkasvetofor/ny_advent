@@ -14,7 +14,7 @@ class Day extends Model implements HasMedia
     use InteractsWithMedia;
     use HasFactory;
 
-    public const COLLECTION_NAME_DAY = 'dayimage';
+    public const COLLECTION_NAME_DAY = 'day';
 
     protected $fillable = [
         'day',

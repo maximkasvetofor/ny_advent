@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Visit;
 use Illuminate\Http\Request;
+use App\Models\Day;
 use App\Repositories\DayRepository;
 
 class AdventController extends Controller
@@ -28,9 +29,9 @@ class AdventController extends Controller
     public function gift($id)
     {
         $day = $this->dayRepository->getAdvent($id);
-        $imageData = $day->data;
-        $encodedImageData = base64_encode($imageData);
-        return [$day->day, $day->name, $day->description, $day->longread, $encodedImageData];
+//        $imageData = $day->Day::getDayImage();
+//        $encodedImageData = base64_encode($imageData);
+        return [$day->day, $day->name, $day->description, $day->longread, $day->getDayImage()->getUrl()];
     }
     public function longread($id)
     {
