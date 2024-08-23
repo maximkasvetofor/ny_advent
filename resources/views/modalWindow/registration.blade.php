@@ -6,22 +6,39 @@
         <h2 class="modal-title">Авторизация</h2>
         <h3 class="modal-subtitle">Регистрация</h3>
     </div>
-    <form class="modal__form" method="Post" action="{{route('advent.register')}}">
+    <form class="modal__form" method="POST" action="{{route('advent.register')}}">
         @csrf
         <div class="modal__form-item">
             <label for="mail">Электронная Почта</label>
             <input type="text" name="email" required="required">
+            @error('email')
+            <span class="error">{{ $message }}</span>
+            @enderror
         </div>
+
         <div class="modal__form-item">
             <label for="mail">Пароль</label>
             <input type="password" name="password" required="required">
+            @error('password')
+            <span class="error">{{ $message }}</span>
+            @enderror
         </div>
+
         <div class="modal__form-item">
-            <label for="mail">Повторите пароль</label>
-            <input type="password" name="password-confirm" required="required">
+            <label for="mail">Повторите Пароль</label>
+            <input type="password" name="password_confirmation" required="required">
+            @error('password-confirm')
+            <span class="error">{{ $message }}</span>
+            @enderror
         </div>
-        <button type="submit">Зарегестрироваться</button>
+        <button type="submit">Войти</button>
     </form>
 
-    <button id="i_have_account">У меня уже есть аккаунт</button>
+    @if ($errors->any())
+        <div class="error-block">
+            <p>Ошибка авторизации: {{ $errors->first() }}</p>
+        </div>
+    @endif
+
+    <button id="i_have_account">У меня ккаунт</button>
 </div>

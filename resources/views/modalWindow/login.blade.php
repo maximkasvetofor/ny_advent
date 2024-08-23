@@ -6,17 +6,29 @@
         <h2 class="modal-title">Авторизация</h2>
         <h3 class="modal-subtitle">Вход</h3>
     </div>
-    <form class="modal__form" method="GET" action="{{route('advent.auth')}}">
+    <form class="modal__form" method="POST" action="{{route('advent.auth')}}">
         @csrf
         <div class="modal__form-item">
-            <label for="mail">Электронная Почта</label>
-            <input type="text" name="email" required="required">
+            <label for="email">Электронная Почта</label>
+            <input type="email" name="email" required="required">
+            @error('email')
+            <span class="error">{{ $message }}</span>
+            @enderror
         </div>
+
         <div class="modal__form-item">
-            <label for="mail">Пароль</label>
+            <label for="password">Пароль</label>
             <input type="password" name="password" required="required">
+            @error('password')
+            <span class="error">{{ $message }}</span>
+            @enderror
         </div>
         <button type="submit">Войти</button>
+        @if ($errors->any())
+            <div class="error-block">
+                <p>Ошибка авторизации: {{ $errors->first() }}</p>
+            </div>
+        @endif
     </form>
 
     <button id="i_dont_have_account">У меня нет аккаунта</button>
