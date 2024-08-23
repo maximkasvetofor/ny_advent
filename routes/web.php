@@ -18,7 +18,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/subs', [\App\Http\Controllers\MailController::class, 'send'])->name('mail.subs');
 Route::get('/test', [App\Http\Controllers\AdminController::class, 'test'])->name('test');
-
+Route::get('/subs/add', [\App\Http\Controllers\MailController::class, 'addMail'])->name('mail.add');
+Route::get('/subs/del', [\App\Http\Controllers\MailController::class, 'delete'])->name('mail.delete');
 Route::get('/adminp', [App\Http\Controllers\AdminController::class, 'admin'])->name('admin.dayslist');
 Route::get('/adminp/edit/{id}', [App\Http\Controllers\AdminController::class, 'edit'])->name('admin.editform');
 Route::post('/adminp/editconfirm', [App\Http\Controllers\AdminController::class, 'editconfirm'])->name('admin.editconfirm');
