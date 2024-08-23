@@ -29,7 +29,13 @@ class AuthController extends Controller
             return back()->withErrors(['auth' => 'Неправильный логин или пароль'])->withInput();
         }
 
-        return redirect()->intended(route('home'));
+        return redirect()->intended(route('index'));
+    }
+
+    public function logout(Request $request): RedirectResponse
+    {
+        Auth::logout();
+        return redirect()->intended('/');
     }
 
     public function registration(Request $request): \Illuminate\Http\JsonResponse

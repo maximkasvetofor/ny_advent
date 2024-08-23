@@ -95,7 +95,7 @@
                 </div>
                 <div class="modal__form-item">
                     <label for="mail">Изображение</label>
-                    <input type="file" id="file-input" name="image" required="required" accept=".jpg, .png, .webp" value="">
+                    <input type="file" id="file-input" name="image" required="required" accept=".jpg, .png, .webp, .mp4, .jpeg, .bmp" value="">
                 </div>
                 <div class="modal__form-item">
                     <label for="mail">Кнопка</label>
@@ -164,7 +164,7 @@
                                 alert("Неподходящее расширение файла! Попробуйте jpg, jpeg, bmp, gif, png, mp4");
                                 return;
                             }
-                            if(fileField.size > 2000000) {
+                            if(fileField.files[0].size > 2000000) {
                                 alert("Файл не должен превышать 2МБ!");
                                 return;
                             }
