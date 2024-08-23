@@ -43,8 +43,8 @@ document.addEventListener('DOMContentLoaded', function() {
                             document.getElementById('podarok-btn').innerHTML = json[5];
                             // Поделится
                             // document.getElementById("share").setAttribute('data-title', 'Сегодня я узнал о совете: "'+json[1]+'"! Узнай больше по ссылке- ');
-                            
-                        //ЛОНГРИД 
+
+                        //ЛОНГРИД
                             if (json[3]) {
                                 form.getElementsByClassName("modal-buttons")[0].getElementsByTagName("div")[0].innerHTML += `<a class href="/adminp/longread/${day}" id="podarok-btn">Подробнее</a>`
                                 // form.getElementsByClassName("modal-buttons")[0].getElementsByTagName("div")[0].remove("inactive")
@@ -56,8 +56,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
                         //МЕДИА
                             if (json[4]) {
-                                document.getElementById('podarok-media').innerHTML = `<img src="${json[4]}" alt="" width="100%">`;
-                                document.getElementById("podarok-media").style.display = "flex";
+                                console.log(json[4].split('.').pop() == 'mp4');
+                                if(json[4].split('.').pop() == 'mp4') {
+                                    document.getElementById('podarok-media').innerHTML = `<video src="${json[4]}" alt="" width="100%" autoplay controls>`;
+                                }
+                                else {
+                                    document.getElementById('podarok-media').innerHTML = `<img src="${json[4]}" alt="" width="100%">`;
+                                    document.getElementById("podarok-media").style.display = "flex";
+                                }
                             }else{
                                 document.getElementById('podarok-media').style.display = "none";
                             }

@@ -79,50 +79,50 @@
             </svg>
             <div id="confirmation" class="font-medium">
             </div>
-                <div class="modal-info">
-                    <h2 class="modal-title" id="day-title">День № </h2>
+            <div class="modal-info">
+                <h2 class="modal-title" id="day-title">День № </h2>
+            </div>
+            <form class="modal__form">
+                <div class="modal__form-item">
+                    <label for="mail">Название</label>
+                    <input type="text" id="name-input" name="name" required="required" value="">
                 </div>
-                <form class="modal__form">
-                    <div class="modal__form-item">
-                        <label for="mail">Название</label>
-                        <input type="text" id="name-input" name="name" required="required" value="">
-                    </div>
-                    <div class="modal__form-item">
-                        <label for="mail">Описание</label>
-                        <input type="textarea" rows="10" cols="45" id="description-input" name="desc" required="required" value="">
-                    </div>
-                    <div class="modal__form-item">
-                        <label for="mail">Изображение</label>
-                        <input type="file" id="file-input" name="image" required="required" accept=".jpg, .png, .webp" value="">
-                    </div>
-                    <div class="modal__form-item">
-                        <label for="mail">Кнопка</label>
-                        <input type="text" id="button-input" name="button" required="required" value="">
-                    </div>
-                    <div class="modal__form-item">
-                        <label for="mail">Лонгрид</label>
-                        <textarea type="textarea" rows="10" cols="45" id="longread-input" name="long" required="required" value=""></textarea>
-                    </div>
-                </form>
-                <button id="submit" value="">Изменить</button>
-                <style>
-                    .modal__form{
-                        max-height: 400px;
-                        overflow: auto;
-                        .modal__form-item{
-                            overflow: unset;
-                            height: 100%!important;
-                        }
+                <div class="modal__form-item">
+                    <label for="mail">Описание</label>
+                    <input type="textarea" rows="10" cols="45" id="description-input" name="desc" required="required" value="">
+                </div>
+                <div class="modal__form-item">
+                    <label for="mail">Изображение</label>
+                    <input type="file" id="file-input" name="image" required="required" accept=".jpg, .png, .webp" value="">
+                </div>
+                <div class="modal__form-item">
+                    <label for="mail">Кнопка</label>
+                    <input type="text" id="button-input" name="button" required="required" value="">
+                </div>
+                <div class="modal__form-item">
+                    <label for="mail">Лонгрид</label>
+                    <textarea type="textarea" rows="10" cols="45" id="longread-input" name="long" required="required" value=""></textarea>
+                </div>
+            </form>
+            <button id="submit" value="">Изменить</button>
+            <style>
+                .modal__form{
+                    max-height: 400px;
+                    overflow: auto;
+                    .modal__form-item{
+                        overflow: unset;
+                        height: 100%!important;
                     }
-                </style>
+                }
+            </style>
         </div>
     </div>
 
 </main>
 </body>
 <div class="modal-wrapper inactive">
-        @include('modalWindow.subs')
-    </div>
+    @include('modalWindow.subs')
+</div>
 </html>
 <script>
 
@@ -159,14 +159,16 @@
                         const fileField = document.querySelector('input[name="image"]');
                         const button = document.querySelector('input[name="button"]').value;
                         var fname = document.querySelector('input[name="image"]').value;
-                        var re = /(\.jpg|\.jpeg|\.bmp|\.gif|\.png)$/i;
-                        if (!re.exec(fname)) {
-                            alert("Неподходящее расширение файла! Попробуйте jpg, jpeg, bmp, gif, png");
-                            return;
-                        }
-                        if(fileField.size > 2000000) {
-                            alert("Файл не должен превышать 2МБ!");
-                            return;
+                        var re = /(\.jpg|\.jpeg|\.bmp|\.gif|\.png|\.mp4)$/i;
+                        if (fname !== "") {
+                            if (!re.exec(fname)) {
+                                alert("Неподходящее расширение файла! Попробуйте jpg, jpeg, bmp, gif, png, mp4");
+                                return;
+                            }
+                            if(fileField.size > 2000000) {
+                                alert("Файл не должен превышать 2МБ!");
+                                return;
+                            }
                         }
 
                         formData.append("day", day);
