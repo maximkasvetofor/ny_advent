@@ -23,7 +23,12 @@ class MailController extends Controller
         $existingMail = Mails::where('mail', $email)->first();
         if (!$existingMail) {
             Mail::to($request->email)->send(new mailNotify($data));
-            return view('email.mailNotify', ['data' => $data]);
+            $Days = $this->dayRepository->getAdvents();
+            $Visit = Visit::firstOrCreate([]);
+            $Visit->Count = ($Visit->Count ?? 0) + 1;
+            $Visit->save();
+
+            return view('index', ['Days' => $Days, 'Count' => $Visit->Count]);
         }else {
             return response()->json(['error' => 'Почта уже подписанна на рассылку'], 409);
         }
