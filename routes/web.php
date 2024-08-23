@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 //Route::resource('/adminp/test', \App\Http\Controllers\DayController::class);
 
-
+Route::get('/subs', [\App\Http\Controllers\MailController::class, 'send'])->name('mail.subs');
 Route::get('/test', [App\Http\Controllers\AdminController::class, 'test'])->name('test');
 
 Route::get('/adminp', [App\Http\Controllers\AdminController::class, 'admin'])->name('admin.dayslist');
