@@ -58,6 +58,15 @@ class AdventController extends Controller
         $Visit->Count = ($Visit->Count ?? 0) + 1;
         $Visit->save();
         $day = $this->dayRepository->getAdvent($id);
-        return response()->view('longread', ['day' => $day->day, 'name' => $day->name, 'longread' => $day->longread, 'Count' => $Visit->Count]);
+        $image = $day->getDayImage();
+        if($image == null)
+        {
+            $image="";
+        }
+        else
+        {
+            $image = $image->getUrl();
+        }
+        return response()->view('longread', ['day' => $day->day, 'name' => $day->name, 'longread' => $day->longread, 'Count' => $Visit->Count, 'image' => $image]);
     }
 }

@@ -25,6 +25,16 @@
                         <h3>{{$name}}</h2>
                         <p>{!! nl2br($longread) !!}</p>
                 </div>
+            <div class="container">
+                @if($image == '')
+                @else
+                        @if(explode('.', $image)[2] == 'mp4')
+                        <video src="{{$image}}" alt="" width="100%" controls></video>
+                        @else
+                                    <img src="{{$image}}" alt="" width="100%">
+                        @endif
+                @endif
+            </div>
             @include('partials.links')
             @include('partials.footer')
         </div>
