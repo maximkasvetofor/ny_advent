@@ -13,6 +13,19 @@
         <script src="https://yastatic.net/share2/share.js"></script>
     </head>
     <body class="antialiased">
+        <div class="preloader">
+            <div class="preloader__image"></div>
+        </div>
         @yield('content')
     </body>
+
+    <script>
+        window.onload = function () {
+            window.setTimeout(function(){document.body.classList.add('loaded_hiding');}, 1000);
+            window.setTimeout(function () {
+                document.body.classList.add('loaded');
+                document.body.classList.remove('loaded_hiding');
+            }, 1500);
+        }
+    </script>
 </html>
