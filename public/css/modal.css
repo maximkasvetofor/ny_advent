@@ -44,7 +44,7 @@
     flex-direction: column;
     font-family: loos-normal-regular;
     font-size: 18px;
-    gap: 15px;
+    gap: 30px;
 }
 .modal__form{
     gap: 30px;
@@ -142,8 +142,9 @@
 .modal-buttons {
     display: flex;
     flex-direction: column-reverse;
-    column-gap: 10px;
-    row-gap: 10px;
+    /* column-gap: 10px;
+    row-gap: 10px; */
+    gap: 30px;
 }
 .modal-buttons-social{
     display: flex;

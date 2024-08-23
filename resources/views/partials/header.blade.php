@@ -23,6 +23,7 @@
             <form class="logOut" method="get" action="{{route('advent.logout')}}">
                 <button>Выход</button>
             </form>
+            <button id="auth-btn" style="display:none!important">Авторизоваться</button>
         @else
             <button id="auth-btn">Авторизоваться</button>
         @endif

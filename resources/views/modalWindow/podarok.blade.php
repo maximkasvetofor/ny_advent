@@ -10,10 +10,22 @@
         <div class="modal__form-item">
             <h3 id="podarok-name">0</h3>
         </div>
-        <div class="modal__form-item">
-            <p id="podarok-description"></p>
+        <div class="modal__form-item" style="flex-direction: row">
+            <p id="podarok-description" style="width:100%"></p>
             <div id="podarok-media">
+                <style>
+                    #podarok-media{
+                        background-image:url( {{ url('images/123.jpg') }} );
+                        background-repeat: no-repeat;
+                        max-width: 350px;
+                        width: 100%;
+                        height: 300px;
+                        border-radius: 30px;
+                        background-size: cover;
+                    }
+                </style>
             </div>
+            <!-- <img src="{{asset("images/123.jpg")}}" alt="Фотография профиля"> -->
         </div>
         <!-- <div class="gift-social">
             <button id="podarok-btn" type="button">Поделится</button>
