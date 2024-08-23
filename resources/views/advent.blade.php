@@ -38,7 +38,7 @@
             </div>
         </header>
         <!-- История лендинга -->
-        <div class="container">
+        <div class="container mt-first-container">
             <h2>
                 Кибербезопасный новый год
             </h2>
