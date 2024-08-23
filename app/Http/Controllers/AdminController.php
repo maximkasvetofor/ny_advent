@@ -25,7 +25,7 @@ class AdminController extends Controller
     public function edit($id)
     {
         $day = $this->dayRepository->getAdvent($id);
-        return [$day->day, $day->name, $day->description, $day->longread];
+        return [$day->day, $day->name, $day->description, $day->longread, $day->button];
     }
 
     public function editconfirm(Request $request, Day $day)
@@ -34,6 +34,7 @@ class AdminController extends Controller
         $day->name = $request->input('name');
         $day->description = $request->input('description');
         $day->longread = $request->input('longread');
+        $day->button = $request->input('button');
         if($request->hasFile('image')){
             $day->addMediaFromRequest('image')->toMediaCollection('day');
         }

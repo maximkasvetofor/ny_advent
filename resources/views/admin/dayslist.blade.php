@@ -119,7 +119,10 @@
                     <div class="modal__form-item">
                         <label for="mail">Изображение</label>
                         <input type="file" id="file-input" name="image" required="required" value="">
-
+                    </div>
+                    <div class="modal__form-item">
+                        <label for="mail">Кнопка</label>
+                        <input type="text" id="button-input" name="button" required="required" value="">
                     </div>
                 </form>
                 <button id="submit" value="">Изменить</button>
@@ -151,6 +154,7 @@
                     document.getElementById('name-input').value=json[1];
                     document.getElementById('description-input').value=json[2];
                     document.getElementById('longread-input').value=json[3];
+                    document.getElementById('button-input').value=json[4];
                     ModalWrapper.classList.remove("inactive")
                     ModalDays.classList.remove("inactive")
 
@@ -162,12 +166,14 @@
                         const description = document.querySelector('input[name="desc"]').value;
                         const longread = document.querySelector('input[name="long"]').value;
                         const fileField = document.querySelector('input[name="image"]');
+                        const button = document.querySelector('input[name="button"]').value;
 
                         formData.append("day", day);
                         formData.append("name", name);
                         formData.append("description", description);
                         formData.append("longread", longread);
                         formData.append("image", fileField.files[0]);
+                        formData.append("button", button);
                         console.log(day);
                         try {
                             const response = await fetch("{{route('admin.editconfirm')}}", {

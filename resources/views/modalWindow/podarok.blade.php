@@ -16,7 +16,7 @@
             </div>
 
         </div>
-        <button id="podarok-btn" type="button">Жду следующего совета!</button>
+        <button id="podarok-btn" type="button"></button>
         <div id="podarok-longread"></div>
     </form>
 </div>

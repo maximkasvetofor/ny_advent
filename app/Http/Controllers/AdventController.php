@@ -40,7 +40,7 @@ class AdventController extends Controller
         {
             $image = $image->getUrl();
         }
-        return [$day->day, $day->name, $day->description, $day->longread, $image];
+        return [$day->day, $day->name, $day->description, $day->longread, $image, $day->button];
     }
     public function longread($id)
     {

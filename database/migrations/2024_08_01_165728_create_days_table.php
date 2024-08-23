@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('description')->nullable();
             $table->text('longread')->nullable();
+            $table->string('button');
             $table->timestamps();
         });
     }
