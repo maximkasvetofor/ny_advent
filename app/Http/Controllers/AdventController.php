@@ -31,7 +31,16 @@ class AdventController extends Controller
         $day = $this->dayRepository->getAdvent($id);
 //        $imageData = $day->Day::getDayImage();
 //        $encodedImageData = base64_encode($imageData);
-        return [$day->day, $day->name, $day->description, $day->longread, $day->getDayImage()->getUrl()];
+        $image = $day->getDayImage();
+        if($image == null)
+        {
+            $image="";
+        }
+        else
+        {
+            $image = $image->getUrl();
+        }
+        return [$day->day, $day->name, $day->description, $day->longread, $image];
     }
     public function longread($id)
     {
