@@ -54,6 +54,7 @@ class AuthController extends Controller
             'email' => 'required|string|email|max:50|unique:users',
             'password' => 'required|string|max:50',
             'password-confirm' => 'required|string|max:50|same:password',
+            'agree' => 'required|accepted',
         ], [
             'email.required' => 'Поле Почта обязательно для заполнения',
             'email.string' => 'Поле Почта должно быть строкой',
@@ -67,6 +68,8 @@ class AuthController extends Controller
             'password-confirm.string' => 'Поле Повторите пароль должно быть строкой',
             'password-confirm.max' => 'Поле Повторите пароль не должно превышать 50 символов',
             'password-confirm.same' => 'Пароли не совпадают',
+            'agree.required' => 'Пользовательское соглашение должно быть ознакомленно!', // add this line
+            'agree.accepted' => 'Пользовательское соглашение должно быть ознакомленно!', // add this line
         ]);
 
         if ($validator->fails()) {

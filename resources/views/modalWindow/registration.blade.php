@@ -56,7 +56,7 @@
         @csrf
         <div class="modal__form-item">
             <label for="mail">Электронная Почта</label>
-            <input type="text" name="email" required="required">
+            <input type="text" name="email" id="name" required="required">
         </div>
 
         <div class="modal__form-item">
@@ -68,6 +68,17 @@
             <label for="mail">Повторите Пароль</label>
             <input type="password" name="password-confirm" required="required">
         </div>
+
+        <div class="modal__form-item">
+            <input type="checkbox" id="agree" name="agree" required>
+            <label for="agree">Ознакомлен с пользовательским соглашением *</label>
+        </div>
+
+        <div class="modal__form-item">
+            <input type="checkbox" id="subscribe" name="subscribe">
+            <label for="subscribe">Согласие на рассылку (не обязательно)</label>
+        </div>
+
         <button type="submit">Войти</button>
     </form>
     <button id="i_have_account">У меня есть аккаунт</button>
@@ -78,7 +89,7 @@
     const form = document.getElementById('register-form');
     const messageBlock = document.getElementById('massageBlock');
     const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-
+    const email1 = document.getElementById('name');
     form.addEventListener('submit', async (event) => {
         event.preventDefault();
 
@@ -98,9 +109,16 @@
 
         } else {
             messageBlock.classList.add('show');
-            messageBlock.innerHTML = `<i class="ico">&#10004;</i> Успех: <br> "Вы успешно зарегистрировались"`+`<i class="close" onclick="closeMessage()">&#9747;</i>`;
+            messageBlock.innerHTML = `<i class="ico">&#10004;</i> Успех: <br> "Вы успешно зарегистрировались"` + `<i class="close" onclick="closeMessage()">&#9747;</i>`;
             messageBlock.style.background = "green";
 
+            if (formData.get('subscribe')) {
+                setTimeout(function() {
+                    const email = document.getElementById('name').value;
+                    const url = `{{ route('mail.subs') }}?email=${email}`;
+                    window.location.href = url;
+                }, 2000);
+            }
         }
     });
 
