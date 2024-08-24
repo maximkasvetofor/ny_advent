@@ -67,13 +67,14 @@
     </form>
 
     <button id="i_dont_have_account">У меня нет аккаунта</button>
+    <div id="block_error" onclick="closeErrorLogin()" class="error-sleep"></div>
     <div class="errorBlock" id="errorBlockLogin">
     </div>
 </div>
 
 <script>
     const loginForm = document.getElementById('login-form');
-    const errorBlockLogin = document.getElementById('errorBlockLogin');
+    const errorBlockLogin = document.getElementById('block_error');
     const csrfTokenLogin = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
     loginForm.addEventListener('submit', async (event) => {
@@ -87,17 +88,16 @@
             },
             body: formDataLogin,
         });
-        console.log(responseLogin);
         if (!responseLogin.ok) {
             const errorDataLogin = await responseLogin.json();
-            errorBlockLogin.innerHTML = `<i class="ico">&#9747;</i> Ошибка: <br>${errorDataLogin.error}` + `<i class="close" onclick="closeErrorLogin()">&#9747;</i>`;
-            errorBlockLogin.classList.add('show'); // add the show class to trigger the transition
+            errorBlockLogin.innerHTML = `${errorDataLogin.error}`;
+            errorBlockLogin.classList.remove('error-sleep'); // add the show class to trigger the transition
         } else {
             window.location.href = '/';
         }
     });
 
     function closeErrorLogin() {
-        errorBlockLogin.classList.remove('show');
+        errorBlockLogin.classList.add('error-sleep');
     }
 </script>

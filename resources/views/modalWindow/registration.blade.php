@@ -8,7 +8,7 @@
         font-style: normal;
         font-weight: bold;
     }
-    .massageBlock {
+    #massageBlock {
         position: absolute;
         top: 90%;
         right: 20px;
@@ -23,12 +23,12 @@
         transition: transform 0.5s, opacity 0.5s, visibility 0s; /* add a transition effect to transform, opacity, and visibility */
     }
 
-    .massageBlock.show {
+    #massageBlock.show {
         visibility: visible; /* final visibility: visible */
         opacity: 1; /* final opacity: 1 */
         transform: translateX(0); /* final transform: slide in from the right */
     }
-    .massageBlock .close {
+    #massageBlock .close {
         position: absolute;
         top: 10px;
         right: 10px;
@@ -56,6 +56,7 @@
         align-items: center;
         width: 100%;
     }
+    
 </style>
 
 <div class="modal inactive modal-reg">
@@ -66,7 +67,7 @@
         <h2 class="modal-title">Авторизация</h2>
         <h3 class="modal-subtitle">Регистрация</h3>
     </div>
-    <form class="modal__form" id="register-form" method="POST" action="{{route('advent.register')}}" style="max-height: 250px!important; overflow: auto!important;">
+    <form class="modal__form" id="register-form" method="POST" action="{{route('advent.register')}}" style="max-height: 264px!important; overflow: auto!important;">
         @csrf
         <div class="modal__form-item" style="overflow-y: unset!important">
             <label for="mail">Электронная Почта</label>
@@ -85,7 +86,7 @@
 
         <div class="modal__form-item-checkbox" style="overflow-y: unset!important">
             <input type="checkbox" id="agree" name="agree" required>
-            <label for="agree">Ознакомлен с пользовательским соглашением *</label>
+            <label for="agree">Ознакомлен с <a href="https://cyberprotect.ru/privacy">пользовательским соглашением</a></label>
         </div>
 
         <div class="modal__form-item-checkbox" style="overflow-y: unset!important">
@@ -95,12 +96,12 @@
     </form>
     <button type="submit" form="register-form">Войти</button>
     <button id="i_have_account">У меня есть аккаунт</button>
-    <div class="massageBlock" id="massageBlock">
-    </div>
+    <div id="block_error" onclick="closeErrorLogin()" class="error-sleep"></div>
+                
 </div>
 <script>
     const form = document.getElementById('register-form');
-    const messageBlock = document.getElementById('massageBlock');
+    const messageBlock = document.getElementById('block_error');
     const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
     const email1 = document.getElementById('name');
     form.addEventListener('submit', async (event) => {
@@ -116,13 +117,13 @@
         });
         console.log(response);
         if (!response.ok) {
-            messageBlock.classList.add('show');
+            messageBlock.classList.remove('error-sleep');
             const errorData = await response.json();
-            messageBlock.innerHTML = `<i class="ico">&#9747;</i> Ошибка: <br>${errorData.error}`+`<i class="close" onclick="closeMessage()">&#9747;</i>`;
+            messageBlock.innerHTML = `${errorData.error}`;
 
         } else {
-            messageBlock.classList.add('show');
-            messageBlock.innerHTML = `<i class="ico">&#10004;</i> Успех: <br> "Вы успешно зарегистрировались"` + `<i class="close" onclick="closeMessage()">&#9747;</i>`;
+            messageBlock.classList.remove('error-sleep');
+            // messageBlock.innerHTML = `<i class="ico">&#10004;</i> Успех: <br> "Вы успешно зарегистрировались"` + `<i class="close" onclick="closeMessage()">&#9747;</i>`;
             messageBlock.style.background = "green";
 
             if (formData.get('subscribe')) {
@@ -136,6 +137,6 @@
     });
 
     function closeMessage() {
-        messageBlock.classList.remove('show');
+        messageBlock.classList.add('error-sleep');
     }
 </script>
