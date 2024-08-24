@@ -470,3 +470,8 @@ footer{
     }
 
 }
+@media (max-width: 600px) {
+    .modal__form-item{
+        flex-direction: column!important;
+    }
+}
