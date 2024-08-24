@@ -43,3 +43,16 @@
     </div>
     </div>
 </header>
+
+<style>
+    header{
+        border-width: 30px;
+        border-style: solid;
+        border-image-source: url("http://advent/images/border.png");
+        border-image-slice: 0 60 2000 20;
+        border-image-width: 0 0 50px 0;
+        border-image-outset: 0px 0px 36px 0px;
+        border-image-repeat: round;
+        border-style: solid;
+    } 
+</style>
