@@ -27,12 +27,12 @@
             </div>
             <!-- <img src="{{asset("images/123.jpg")}}" alt="Фотография профиля"> -->
         </div>
-        <!-- <div class="gift-social">
-            <button id="podarok-btn" type="button">Поделится</button>
-        </div> -->
+        <div class="gift-social">
+            <div class="ya-share2" data-curtain data-title="Узнай больше советов о кибербезопасности здесь- " data-size="l" data-shape="round" data-color-scheme="whiteblack" data-services="vkontakte,odnoklassniki,telegram,viber,whatsapp"></div>
+        </div>
+
         <div class="modal-buttons">
             <button id="podarok-btn" type="button"></button>
-            <!-- <div id="share" class="ya-share2" data-title="" data-curtain data-size="l" data-shape="round" data-limit="0" data-more-button-type="short" data-services="vkontakte,odnoklassniki,telegram,viber,whatsapp"></div> -->
             <div class="modal-buttons-social">
             </div>
         </div>

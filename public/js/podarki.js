@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // item.querySelector('#tapeLeft-cover').classList.add('fly-off');
                 // item.querySelector('#tapeRight-cover').classList.add('fly-off');
                 setTimeout(function() {
-                    
+
                     // item.querySelector('#tapeWhite').classList.add('tape-off');
                     // item.querySelector('#tapeRed').classList.add('tape-off');
                     var day = (item.getAttribute('value'));
@@ -38,17 +38,14 @@ document.addEventListener('DOMContentLoaded', function() {
                             document.getElementById('podarok-name').innerHTML = json[1];
                             document.getElementById('podarok-description').innerHTML = json[2];
                             document.getElementsByClassName('modal__form-item')
-                            if (json[0] == 31) {
-                                document.getElementById('podarok-btn').innerHTML = "С НОВЫМ ГОДОМ!"
-                            }
                             var form = document.getElementById('gift-form')
                             document.getElementById('podarok-btn').innerHTML = json[5];
                             // Поделится
-                            // document.getElementById("share").setAttribute('data-title', 'Сегодня я узнал о совете: "'+json[1]+'"! Узнай больше по ссылке- ');
+                            document.getElementById("share").setAttribute('data-title', 'Сегодня я узнал о совете: "'+json[1]+'"! Узнай больше по ссылке- ');
 
                         //ЛОНГРИД
                             if (json[3]) {
-                                form.getElementsByClassName("modal-buttons")[0].getElementsByTagName("div")[0].innerHTML += `<a class href="/adminp/longread/${day}" id="podarok-btn">Подробнее</a>`
+                                form.getElementsByClassName("modal-buttons")[0].getElementsByTagName("div")[0].innerHTML += `<a class href="/longread/${day}" id="podarok-btn">Подробнее</a>`
                                 // form.getElementsByClassName("modal-buttons")[0].getElementsByTagName("div")[0].remove("inactive")
                                 form.getElementsByClassName("modal-buttons")[0].getElementsByTagName("div")[0].style.display = "flex";
 
@@ -60,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             if (json[4]) {
                                 console.log(json[4].split('.').pop() == 'mp4');
                                 if(json[4].split('.').pop() == 'mp4') {
-                                    document.getElementById('podarok-media').innerHTML = `<video src="${json[4]}" alt="" width="100%" autoplay controls>`;
+                                    document.getElementById('podarok-media').innerHTML = `<video src="${json[4]}" alt="" width="100%" autoplay controls muted>`;
                                 }
                                 else {
                                     document.getElementById('podarok-media').innerHTML = `<img src="${json[4]}" alt="" width="100%">`;

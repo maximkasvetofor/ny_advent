@@ -29,7 +29,7 @@
                 @if($image == '')
                 @else
                         @if(explode('.', $image)[2] == 'mp4')
-                        <video src="{{$image}}" alt="" width="100%" controls></video>
+                        <video src="{{$image}}" alt="" width="100%" controls muted></video>
                         @else
                                     <img src="{{$image}}" alt="" width="100%">
                         @endif
