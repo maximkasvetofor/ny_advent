@@ -14,7 +14,7 @@ class AuthController extends Controller
     {
 
     }
-    public function authenticate(Request $request): RedirectResponse
+    public function authenticate(Request $request): \Illuminate\Http\JsonResponse
     {
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
@@ -22,14 +22,24 @@ class AuthController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return back()->withErrors($validator)->withInput();
+            $errors = $validator->errors();
+            if ($errors->has('email')) {
+                if (str_contains($errors->first('email'), 'valid email address')) {
+                    return response()->json(['error' => 'Неправильный формат электронной почты'], 422)->setStatusCode(422);
+                }
+            }
+            if ($errors->has('password')) {
+                return response()->json(['error' => 'Пароль является обязательным полем'], 422)->setStatusCode(422);
+            }
         }
 
-        if (!Auth::attempt($request->only(['email', 'password']))) {
-            return back()->withErrors(['auth' => 'Неправильный логин или пароль'])->withInput();
+        $credentials = $request->only(['email', 'password']);
+
+        if (!Auth::attempt($credentials)) {
+            return response()->json(['error' => 'Неправильный логин или пароль'], 422)->setStatusCode(422);
         }
 
-        return redirect()->intended(route('index'));
+        return response()->json(['success' => 'Пользователь успешно вошел'], 201);
     }
 
     public function logout(Request $request): RedirectResponse
@@ -40,7 +50,7 @@ class AuthController extends Controller
 
     public function registration(Request $request): \Illuminate\Http\JsonResponse
     {
-        $validatedData = $request->validate([
+        $validator = Validator::make($request->all(), [
             'email' => 'required|string|email|max:50|unique:users',
             'password' => 'required|string|max:50',
             'password-confirm' => 'required|string|max:50|same:password',
@@ -59,15 +69,16 @@ class AuthController extends Controller
             'password-confirm.same' => 'Пароли не совпадают',
         ]);
 
-        try {
-            $user = User::create([
-                'email' => $validatedData['email'],
-                'password' => bcrypt($validatedData['password']),
-            ]);
-
-            return response()->json(['success' => 'User successfully registered'], 201);
-        } catch (\Exception $e) {
-            return response()->json(['error' => 'Registration failed'], 422);
+        if ($validator->fails()) {
+            $error = $validator->errors()->first();
+            return response()->json(['error' => $error], 422);
         }
+
+        $user = User::create([
+            'email' => $request->input('email'),
+            'password' => bcrypt($request->input('password')),
+        ]);
+
+        return response()->json(['success' => 'Пользователь успешно зарегистрировался'], 201);
     }
 }
