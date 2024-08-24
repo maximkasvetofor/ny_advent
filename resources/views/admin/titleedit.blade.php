@@ -8,6 +8,9 @@
 </form>
 <div id="confirmationt" class="font-medium">
 </div>
+<form method="GET" action="{{ route('admin.cleanhistory') }}">
+    <button type="submit" id="refresh_data">Очистить историю пользователей</button>
+</form>
 {{--<script>--}}
 {{--    document.getElementById("submit_title").addEventListener("click", async function (event) {--}}
 {{--        const formDatat = new FormData();--}}
@@ -15,18 +18,19 @@
 {{--        const moto = document.querySelector('input[name="head_moto"]').value;--}}
 {{--        const description = document.querySelector('textarea[name="head_description"]').value;--}}
 {{--        const name = document.querySelector('input[name="head_name"]').value;--}}
+{{--        const csrft = document.querySelector('meta[name="csrf-token"]').getAttribute('content');--}}
 
 
 {{--        formDatat.append("title", "title");--}}
-{{--        formDatat.append("moto", "moto");--}}
-{{--        formDatat.append("description", "description");--}}
-{{--        formDatat.append("name", "name");--}}
+{{--        formDatat.append("moto", moto);--}}
+{{--        formDatat.append("description", description);--}}
+{{--        formDatat.append("name", name);--}}
 
 
 {{--        try {--}}
 {{--            const response = await fetch("{{route('admin.titleedit')}}", {--}}
 {{--                method: "POST",--}}
-{{--                headers: { 'X-CSRF-TOKEN': '{{ csrf_token() }}' },--}}
+{{--                headers: { 'X-CSRF-TOKEN': csrft },--}}
 {{--                body: formDatat,--}}
 {{--            });--}}
 {{--            const result = await response.json();--}}

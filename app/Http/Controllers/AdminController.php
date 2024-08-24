@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\OpenGift;
 use App\Models\Title;
 use App\Repositories\DayRepository;
 use App\Repositories\TitleRepository;
@@ -56,7 +57,13 @@ class AdminController extends Controller
         Title::query()->where('name', 'head_moto')->update(['value' => $request->input('head_moto')]);
         Title::query()->where('name', 'head_description')->update(['value' => $request->input('head_description')]);
         Title::query()->where('name', 'head_name')->update(['value' => $request->input('head_name')]);
-        return back();
+        return redirect()->route('index');
+    }
+
+    public function cleanhistory(Request $request)
+    {
+        OpenGift::truncate();
+        return redirect()->route('index');
     }
 
     public function test(Day $day)

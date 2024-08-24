@@ -24,8 +24,9 @@ Route::get('/adminp', [App\Http\Controllers\AdminController::class, 'admin'])->n
 Route::get('/adminp/edit/{id}', [App\Http\Controllers\AdminController::class, 'edit'])->name('admin.editform');
 Route::post('/adminp/editconfirm', [App\Http\Controllers\AdminController::class, 'editconfirm'])->name('admin.editconfirm');
 Route::post('/adminp/titleedit', [App\Http\Controllers\AdminController::class, 'titleedit'])->name('admin.titleedit');
+Route::get('/adminp/cleanhistory', [App\Http\Controllers\AdminController::class, 'cleanhistory'])->name('admin.cleanhistory');
 Route::get('/longread/{id}', [App\Http\Controllers\AdventController::class, 'longread'])->name('advent.longread');
-Route::get('/', [App\Http\Controllers\AdventController::class, 'advent'])->name('index');
+    Route::get('/', [App\Http\Controllers\AdventController::class, 'advent'])->name('index');
 Route::get('/gift/{id}', [App\Http\Controllers\AdventController::class, 'gift'])->name('gift');
 Route::post('/advent/register', [AuthController::class,'registration'])->name('advent.register');
 Route::post('/advent/auth', [AuthController::class,'authenticate'])->name('advent.auth');
