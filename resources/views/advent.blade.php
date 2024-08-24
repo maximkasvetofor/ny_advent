@@ -64,9 +64,7 @@
                                     <path d="M5.00002 25H41.1001V112H66V25H5.00002Z" fill="#F4E3C3"/>
                                     <path d="M66 25H53V112H66V25Z" fill="#F2C59E"/>
                                 </g>
-                                <g clip-path="url(#clip0_2311_2)" id="pop" style="
-                                    transform-origin: 50% 50%;
-                                    transform: rotate(70deg) translate(22px, -28px);">
+                                <g clip-path="url(#clip0_2311_2)" id="pop" class="alreadyOpen" >
                                 <path d="M6.99592 12.4318C3.27238 12.4318 0.254883 15.4854 0.254883 19.2516V37.2099H53.3199V12.4318H6.99592Z" fill="#FC6F58"/>
                                 <path d="M106.384 19.2516C106.384 15.4845 103.366 12.4318 99.6434 12.4318H53.3199V37.2099H106.384V19.2516Z" fill="#F1543F"/>
                                 <path d="M5.00003 12H41.1001V37H66V12H5.00003Z" fill="#F4E3C3"/>

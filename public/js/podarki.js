@@ -14,7 +14,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 }, 1000);
             } else {
                 item.classList.add('explode');
-                item.querySelector('#pop').classList.add('open');
+                if(!item.querySelector('#pop').classList.contains('alreadyOpen')) {
+                    item.querySelector('#pop').classList.add('open');
+                }
                 // item.querySelector('#leftSide-cover').classList.add('seeForEver');
                 // item.querySelector('#leftSide-cover').classList.add('fly-off');
                 // item.querySelector('#rightSide-cover').classList.add('fly-off');
@@ -46,7 +48,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         //ЛОНГРИД
                             if (json[3]) {
                                 form.getElementsByClassName("modal-buttons")[0].getElementsByTagName("div")[0].innerHTML += `<a class href="/longread/${day}" id="podarok-btn">Подробнее</a>`
-                                // form.getElementsByClassName("modal-buttons")[0].getElementsByTagName("div")[0].remove("inactive")
                                 form.getElementsByClassName("modal-buttons")[0].getElementsByTagName("div")[0].style.display = "flex";
 
                             }else{
