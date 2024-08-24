@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             var form = document.getElementById('gift-form')
                             document.getElementById('podarok-btn').innerHTML = json[5];
                             // Поделится
-                            document.getElementById("share").setAttribute('data-title', 'Сегодня я узнал о совете: "'+json[1]+'"! Узнай больше по ссылке- ');
+                            // document.getElementById("share").setAttribute('data-title', 'Сегодня я узнал о совете: "'+json[1]+'"! Узнай больше по ссылке- ');
 
                         //ЛОНГРИД
                             if (json[3]) {
