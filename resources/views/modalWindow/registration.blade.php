@@ -43,12 +43,12 @@
         opacity: 1; /* when the block is shown, opacity is 1 */
     }
     input[type="checkbox"]{
-        width: fit-content;
-        padding: 10px;
-        margin-right: 30px;
+        font-size: 30px;
+        width: 20px;
+        height: 20px;
     }
     .modal__form-item-checkbox{
-        max-width: 700px;
+        max-width: 500px;
         width: 100%;
         display: flex;
         justify-content: space-between;
@@ -92,8 +92,6 @@
             <input type="checkbox" id="subscribe" name="subscribe">
             <label for="subscribe">Согласие на рассылку (не обязательно)</label>
         </div>
-
-
     </form>
     <button type="submit" form="register-form">Войти</button>
     <button id="i_have_account">У меня есть аккаунт</button>

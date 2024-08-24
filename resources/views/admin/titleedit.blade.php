@@ -1,24 +1,26 @@
 <div class="container">
     <h3>
-        Наполнение, 
+        Наполнение
     </h3>
     <form method="POST" action="{{ route('admin.titleedit') }}" class="admin-form">
         @csrf
-        <div class="admin-input">
-            <label for="head_title">Главный заголовок</label>
-            <input type="text" name="head_title" value="{{ $head_title->value }}">
-        </div>
-        <div class="admin-input">
-            <label for="head_moto">Второй заголовок</label>
-            <input type="text" name="head_moto" value="{{ $head_moto->value }}">
-        </div>
-        <div class="admin-input">
-            <label for="head_description">Описание</label>
-            <textarea type="textarea" name="head_description">{{ $head_description->value }}</textarea>
-        </div>
-        <div class="admin-input">
-            <label for="head_name">Описание</label>
-            <input type="text" name="head_name" value="{{ $head_name->value }}">
+        <div class="flex-container container">
+            <div class="admin-input">
+                <label for="head_title">Главный заголовок</label>
+                <input type="text" name="head_title" value="{{ $head_title->value }}">
+            </div>
+            <div class="admin-input">
+                <label for="head_moto">Второй заголовок</label>
+                <input type="text" name="head_moto" value="{{ $head_moto->value }}">
+            </div>
+            <div class="admin-input">
+                <label for="head_description">Описание</label>
+                <textarea type="textarea" name="head_description">{{ $head_description->value }}</textarea>
+            </div>
+            <div class="admin-input">
+                <label for="head_name">Наименование календаря</label>
+                <input type="text" name="head_name" value="{{ $head_name->value }}">
+            </div>
         </div>
         <button class="regular-btn"  type="submit" id="submit_title">Сохранить</button>
         <div id="confirmationt" class="font-medium">

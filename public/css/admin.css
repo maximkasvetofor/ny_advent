@@ -85,6 +85,20 @@
         flex-direction: column;
     }
 }
+.flex-container{
+    flex-direction: row !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    flex-wrap: wrap;
+    gap: 30px;
+    input{
+        max-width: 600px!important;
+        min-width: 300px;
+        width: 100%;
+
+    }
+}
 .admin-form{
     width: 100%;
     display: flex;
