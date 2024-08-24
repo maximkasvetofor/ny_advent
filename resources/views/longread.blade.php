@@ -50,3 +50,5 @@
         @include('modalWindow.podarok')
     </div>
 @endsection
+
+@include('snow')
