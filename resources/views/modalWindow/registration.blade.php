@@ -93,8 +93,9 @@
             <label for="subscribe">Согласие на рассылку (не обязательно)</label>
         </div>
 
-        <button type="submit">Войти</button>
+
     </form>
+    <button type="submit" form="register-form">Войти</button>
     <button id="i_have_account">У меня есть аккаунт</button>
     <div class="massageBlock" id="massageBlock">
     </div>
