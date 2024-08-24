@@ -42,6 +42,20 @@
     #massageBlock.show {
         opacity: 1; /* when the block is shown, opacity is 1 */
     }
+    input[type="checkbox"]{
+        width: fit-content;
+        padding: 10px;
+        margin-right: 30px;
+    }
+    .modal__form-item-checkbox{
+        max-width: 700px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row-reverse;
+        align-items: center;
+        width: 100%;
+    }
 </style>
 
 <div class="modal inactive modal-reg">
@@ -52,29 +66,29 @@
         <h2 class="modal-title">Авторизация</h2>
         <h3 class="modal-subtitle">Регистрация</h3>
     </div>
-    <form class="modal__form" id="register-form" method="POST" action="{{route('advent.register')}}">
+    <form class="modal__form" id="register-form" method="POST" action="{{route('advent.register')}}" style="max-height: 250px!important; overflow: auto!important;">
         @csrf
-        <div class="modal__form-item">
+        <div class="modal__form-item" style="overflow-y: unset!important">
             <label for="mail">Электронная Почта</label>
             <input type="text" name="email" id="name" required="required">
         </div>
 
-        <div class="modal__form-item">
+        <div class="modal__form-item" style="overflow-y: unset!important">
             <label for="mail">Пароль</label>
             <input type="password" name="password" required="required">
         </div>
 
-        <div class="modal__form-item">
+        <div class="modal__form-item" style="overflow-y: unset!important">
             <label for="mail">Повторите Пароль</label>
             <input type="password" name="password-confirm" required="required">
         </div>
 
-        <div class="modal__form-item">
+        <div class="modal__form-item-checkbox" style="overflow-y: unset!important">
             <input type="checkbox" id="agree" name="agree" required>
             <label for="agree">Ознакомлен с пользовательским соглашением *</label>
         </div>
 
-        <div class="modal__form-item">
+        <div class="modal__form-item-checkbox" style="overflow-y: unset!important">
             <input type="checkbox" id="subscribe" name="subscribe">
             <label for="subscribe">Согласие на рассылку (не обязательно)</label>
         </div>

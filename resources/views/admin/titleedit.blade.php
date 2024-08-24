@@ -1,16 +1,40 @@
-<form method="POST" action="{{ route('admin.titleedit') }}">
-    @csrf
-    <input type="text" name="head_title" value="{{ $head_title->value }}">
-    <input type="text" name="head_moto" value="{{ $head_moto->value }}">
-    <textarea type="textarea" name="head_description">{{ $head_description->value }}</textarea>
-    <input type="text" name="head_name" value="{{ $head_name->value }}">
-    <button type="submit" id="submit_title">Сохранить</button>
-</form>
-<div id="confirmationt" class="font-medium">
+<div class="container">
+    <h3>
+        Наполнение, 
+    </h3>
+    <form method="POST" action="{{ route('admin.titleedit') }}" class="admin-form">
+        @csrf
+        <div class="admin-input">
+            <label for="head_title">Главный заголовок</label>
+            <input type="text" name="head_title" value="{{ $head_title->value }}">
+        </div>
+        <div class="admin-input">
+            <label for="head_moto">Второй заголовок</label>
+            <input type="text" name="head_moto" value="{{ $head_moto->value }}">
+        </div>
+        <div class="admin-input">
+            <label for="head_description">Описание</label>
+            <textarea type="textarea" name="head_description">{{ $head_description->value }}</textarea>
+        </div>
+        <div class="admin-input">
+            <label for="head_name">Описание</label>
+            <input type="text" name="head_name" value="{{ $head_name->value }}">
+        </div>
+        <button class="regular-btn"  type="submit" id="submit_title">Сохранить</button>
+        <div id="confirmationt" class="font-medium">
+    </form>
 </div>
-<form method="GET" action="{{ route('admin.cleanhistory') }}">
-    <button type="submit" id="refresh_data">Очистить историю пользователей</button>
-</form>
+<div class="container">
+    <h3>
+        Сбросить все Дни
+    </h3>
+    <form method="GET" action="{{ route('admin.cleanhistory') }}">
+        <button class="regular-btn"  type="submit" id="refresh_data" style="max-width:320px!important">Очистить историю пользователей</button>
+    </form>
+</div>
+
+</div>
+
 {{--<script>--}}
 {{--    document.getElementById("submit_title").addEventListener("click", async function (event) {--}}
 {{--        const formDatat = new FormData();--}}

@@ -106,6 +106,21 @@
             outline: 5px #C7DFF4 solid;
         }
     }
+    textarea{
+        transition: 0.2s;
+        max-width: 600px;
+        width: 100%;
+        background-color: white;
+        color: black;
+        border-radius: 30px;
+        border: 2px solid #464544;
+        padding: 10px;
+        outline: none;
+        font-size: 18px;
+        border-radius: 30px 30px 0px 30px !important;
+        min-height: 200px;
+    }
+    textarea
     input[type="file"]{
 
         border: none;
