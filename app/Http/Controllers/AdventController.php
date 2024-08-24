@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\OpenGift;
 use App\Models\Visit;
+use App\Repositories\TitleRepository;
 use Illuminate\Http\Request;
 use App\Models\Day;
 use App\Repositories\DayRepository;
@@ -11,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 class AdventController extends Controller
 {
-    public function __construct(protected DayRepository $dayRepository)
+    public function __construct(protected DayRepository $dayRepository, protected TitleRepository $titleRepository)
     {
     }
 
@@ -21,8 +22,12 @@ class AdventController extends Controller
         $Visit = Visit::firstOrCreate([]);
         $Visit->Count = ($Visit->Count ?? 0) + 1;
         $Visit->save();
+        $head_title = $this->titleRepository->getTitle('head_title');
+        $head_moto = $this->titleRepository->getTitle('head_moto');
+        $head_description = $this->titleRepository->getTitle('head_description');
+        $head_name = $this->titleRepository->getTitle('head_name');
 
-        return view('index', ['Days' => $Days, 'Count' => $Visit->Count]);
+        return view('index', ['Days' => $Days, 'Count' => $Visit->Count, 'head_title' => $head_title, 'head_moto' => $head_moto, 'head_description' => $head_description, 'head_name' => $head_name]);
     }
     public function show()
     {
