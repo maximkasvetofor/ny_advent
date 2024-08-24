@@ -7,6 +7,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>@yield('title')</title>
         @yield('css')
+        <link rel="icon" href="{{ asset('images/favicon.ico') }}" type='image/x-icon' }}">
         <script src={{ asset('/bootstrap/js/bootstrap.bundle.min.js') }}></script>
         <script src={{ asset('/js/podarki.js') }}></script>
         <script src={{ asset('/js/modal.js') }}></script>
