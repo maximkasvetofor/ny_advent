@@ -184,6 +184,7 @@ footer{
     }
     svg{
         width: 100%;
+        overflow: visible;
     }
     li{
         position: relative;
@@ -311,7 +312,7 @@ footer{
     font-size: 50px !important;
 }
 .shake {
-    animation: shake 0.5s;
+    animation: shake 0.6s forwards;
 }
 
 .explode {
@@ -321,11 +322,27 @@ footer{
 .fly-off {
     animation: flyOff 0.5s forwards;
 }
-
+.open{
+    animation: open 0.5s forwards;
+}
 @keyframes explode {
     0% { transform: scale(1); }
     100% { transform: scale(0.9); }
 }
+@keyframes open{
+    0%{
+    transform: rotate(0deg) translate(0px, 5px);
+    transform-origin: 50% 50%;
+    }
+    50%{
+        transform-origin: 50% 50%;
+        transform: rotate(30deg) translate(0px,-40px);
+        }
+    100%{
+        transform-origin: 50% 50%;
+        transform: rotate(70deg) translate(22px, -28px);
+    }
+    }
 
 @keyframes flyOff {
     0% {

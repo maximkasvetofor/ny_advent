@@ -14,14 +14,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 }, 1000);
             } else {
                 item.classList.add('explode');
-                item.querySelector('#leftSide-cover').classList.add('seeForEver');
-                item.querySelector('#leftSide-cover').classList.add('fly-off');
-                item.querySelector('#rightSide-cover').classList.add('fly-off');
-                item.querySelector('#tapeLeft-cover').classList.add('fly-off');
-                item.querySelector('#tapeRight-cover').classList.add('fly-off');
+                item.querySelector('#pop').classList.add('open');
+                // item.querySelector('#leftSide-cover').classList.add('seeForEver');
+                // item.querySelector('#leftSide-cover').classList.add('fly-off');
+                // item.querySelector('#rightSide-cover').classList.add('fly-off');
+                // item.querySelector('#tapeLeft-cover').classList.add('fly-off');
+                // item.querySelector('#tapeRight-cover').classList.add('fly-off');
                 setTimeout(function() {
-                    item.querySelector('#tapeWhite').classList.add('tape-off');
-                    item.querySelector('#tapeRed').classList.add('tape-off');
+                    
+                    // item.querySelector('#tapeWhite').classList.add('tape-off');
+                    // item.querySelector('#tapeRed').classList.add('tape-off');
                     var day = (item.getAttribute('value'));
                     var request = new XMLHttpRequest(); // Создвём объект запроса
                     request.open('GET', '/gift/' + day); // Указываем куда отправить запрос
