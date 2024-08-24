@@ -30,6 +30,11 @@ class AdminController extends Controller
         return view('admin.dayslist', ['Days' => $days, 'head_title' => $head_title, 'head_moto' => $head_moto, 'head_description' => $head_description, 'head_name' => $head_name]);
     }
 
+    public function profile()
+    {
+        return view('profile');
+    }
+
     public function edit($id)
     {
         $day = $this->dayRepository->getAdvent($id);

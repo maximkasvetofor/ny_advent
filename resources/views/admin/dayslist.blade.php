@@ -1,20 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <!-- Bootstrap -->
-    <script src={{ asset('/bootstrap/js/bootstrap.bundle.min.js') }}></script>
+@extends('layout.app')
+
+@section('title', 'Административная панель')
+
+@section('css')
     <link rel="stylesheet" href={{ asset('bootstrap/css/bootstrap.min.css') }}>
     <link rel="stylesheet" href={{ asset('fonts/fonts.css') }}>
     <link rel="stylesheet" href={{ asset('css/main.css') }}>
     <link rel="stylesheet" href={{ asset('css/modal.css') }}>
     <link rel="stylesheet" href={{ asset('css/admin.css') }}>
-    <!-- <script src={{ asset('/js/modal.js') }} defer></script> -->
-    <title>Календарь</title>
-</head>
-<body>
+    @endsection
+
+@section('content')
 <main>
     <div class="cotnent">
         @include('partials.header')
@@ -40,33 +36,7 @@
                 @endforeach
             </ul>
         </div>
-        <div class="container">
-            <h3>
-                Профиль
-            </h3>
-            <div class="row-item">
-                <img src="{{asset("images/profile_pic.jpg")}}" alt="Фотография профиля" class="wh-200">
-                <form class="admin-form">
-                    <!-- <p class="font-medium">Почта</p>
-                    <span class="font-regular">kekkekchebutek12@mail.ru</span> -->
-                    <p class="font-medium">Изменить пароль</p>
-                    <div class="admin-form-item">
-                        <div class="admin-input">
-                            <label for="mail">Новый пароль</label>
-                            <input type="text" name="email" required="required">
-                        </div>
-                        <div class="admin-input">
-                            <label for="mail">Старый пароль</label>
-                            <input type="text" name="email" required="required">
-                        </div>
-                    </div>
-                    <button class="regular-btn">Изменить</button>
-                    <!-- <p class="font-medium">Изменить фотографию профиля</p>
-                    <input type="file"> -->
 
-                </form>
-            </div>
-        </div>
 
         <!-- Заголовок сайта -->
         @include('admin.titleedit')
@@ -124,8 +94,7 @@
     </div>
 
 </main>
-</body>
-</html>
+
 <script>
 
     const ModalWrapper = document.getElementsByClassName("modal-wrapper")[0]
@@ -210,3 +179,5 @@
         ModalDays.classList.add("inactive")
     }
 </script>
+
+@endsection

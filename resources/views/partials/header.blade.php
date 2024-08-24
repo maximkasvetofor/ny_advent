@@ -18,8 +18,10 @@
             </svg>
     </a>
     <div class="header-buttons">
-        @if(Auth::check() and request()->is('*adminp*'))
-            <button>{{Auth::user()->email}}</button>
+        @if(Auth::check())
+            <form action="{{route('profile')}}">
+                <button>{{Auth::user()->email}}</button>
+            </form>
         @else
                 <button id="subscribe-btn">Подписаться</button>
         @endif
